@@ -1,0 +1,75 @@
+<view class="head-search"> 
+  <view class="species" bindtap="chooseSpecies" data-name="狗狗"> 
+    <!-- <view wx:if="{{loading}}">  -->
+      <text>狗狗</text> 
+    <!-- </view>  -->
+    <!-- <view wx:else> 
+      <image class='loading' src="../../image/loading.gif" mode='widthFix'></image> 
+    </view>  -->
+  </view> 
+  <view class="search" bindtap="goSearch"> 
+    <image class="search-icon" src="../../image/search.png"></image> 
+    <input class="search-input" type="text" disabled="true" placeholder="搜索你想知道的" placeholder-class="search-placeholder"/> 
+  </view> 
+</view> 
+<view class="nav">
+    <view class="commonsense {{mark == 0 ? 'active':''}}" data-mark="0" bindtap="btnSelect">
+      <image class="navPic" src="../../image/dog.png" mode="widthFix"></image> 
+      <text>常识</text>
+      <image wx:if="{{mark == 0}}" class="on" src="../../image/tyi.png" mode="widthFix"></image> 
+    </view>
+    <view class="illness {{mark == 1 ? 'active':''}}" data-mark="1" bindtap="btnSelect">
+      <image class="navPic" src="../../image/dog.png" mode="widthFix"></image> 
+      <text>疾病</text>
+      <image wx:if="{{mark == 1}}" class="on" src="../../image/tyi.png" mode="widthFix"></image> 
+    </view>
+    <view class="nurse {{mark == 2 ? 'active':''}}" data-mark="2" bindtap="btnSelect">
+      <image class="navPic" src="../../image/dog.png" mode="widthFix"></image> 
+      <text>护理</text>
+      <image wx:if="{{mark == 2}}" class="on" src="../../image/tyi.png" mode="widthFix"></image> 
+    </view>
+    <view class="feed {{mark == 3 ? 'active':''}}" data-mark="3" bindtap="btnSelect">
+      <image class="navPic" src="../../image/dog.png" mode="widthFix"></image> 
+      <text>喂养</text>
+      <image wx:if="{{mark == 3}}" class="on" src="../../image/tyi.png" mode="widthFix"></image> 
+    </view>
+    <view class="domesticate {{mark == 4 ? 'active':''}}" data-mark="4" bindtap="btnSelect">
+      <image class="navPic" src="../../image/dog.png" mode="widthFix"></image> 
+      <text>驯养</text>
+      <image wx:if="{{mark == 4}}" class="on" src="../../image/tyi.png" mode="widthFix"></image> 
+    </view>
+  </view>
+
+<view class="content">
+  <view class="list">
+    <view class="article">
+      <image class="pic" src="../../image/bg.png" mode="widthFix"></image> 
+      <view>
+        <text class="title">什么会影响狗狗的发情周期</text>
+        <text class="txt">狗狗有季节性繁殖的特点，一般情况下女生狗狗一年发情两次到三次相隔，约3月左右的丹阳的狗狗大多数会 狗狗有季节性繁殖的特点，一般情况下女生狗狗一年发情两次到三次相隔，约3月左右的丹阳的狗狗大多数会在</text>
+      </view>
+    </view>
+    <view class="article">
+      <image class="pic" src="../../image/bg.png" mode="widthFix"></image> 
+      <view>
+        <text class="title">什么会影响狗狗的发情周期</text>
+        <text class="txt">狗狗有季节性繁殖的特点，一般情况下女生狗狗一年发情两次到三次相隔，约3月左右的丹阳的狗狗大多数会 狗狗有季节性繁殖的特点，一般情况下女生狗狗一年发情两次到三次相隔，约3月左右的丹阳的狗狗大多数会在</text>
+      </view>
+    </view>
+    <view class="article">
+      <image class="pic" src="../../image/bg.png" mode="widthFix"></image> 
+      <view>
+        <text class="title">什么会影响狗狗的发情周期</text>
+        <text class="txt">狗狗有季节性繁殖的特点，一般情况下女生狗狗一年发情两次到三次相隔，约3月左右的丹阳的狗狗大多数会 狗狗有季节性繁殖的特点，一般情况下女生狗狗一年发情两次到三次相隔，约3月左右的丹阳的狗狗大多数会在</text>
+      </view>
+    </view>
+    <view class="article">
+      <image class="pic" src="../../image/bg.png" mode="widthFix"></image> 
+      <view>
+        <text class="title">什么会影响狗狗的发情周期</text>
+        <text class="txt">狗狗有季节性繁殖的特点，一般情况下女生狗狗一年发情两次到三次相隔，约3月左右的丹阳的狗狗大多数会 狗狗有季节性繁殖的特点，一般情况下女生狗狗一年发情两次到三次相隔，约3月左右的丹阳的狗狗大多数会在</text>
+      </view>
+    </view>
+  </view>
+
+</view>

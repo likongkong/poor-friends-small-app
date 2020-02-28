@@ -1,0 +1,85 @@
+page{
+  padding-bottom: 60rpx;
+  box-sizing: border-box;
+}
+.contact_way{
+  width: 670rpx;
+  padding: 30rpx 0; 
+  border: 1px solid #FFFFFF;
+  box-shadow: 0 0 4px 0 rgba(0,0,0,0.38);
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin: 40rpx auto 0 auto;
+}
+.contact_way view{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 48rpx;
+}
+.contact_way view:last-child{
+  margin-bottom: 0;
+}
+.contact_way view image{
+  margin-right: 20rpx;
+  height: auto;
+}
+.contact_way view text{
+  font-size:28rpx;
+  color: #000000;
+}
+.contact_way .qq{
+  width: 40rpx;
+}
+.contact_way .weixin{
+  width: 64rpx;
+}
+.contact_way .qq{
+  width: 52rpx;
+}
+.contact_way .youxiang{
+  width: 74rpx;
+}
+
+.introduce{
+  width: 670rpx;
+  padding: 60rpx 0; 
+  border: 1px solid #FFFFFF;
+  box-shadow: 0 0 4px 0 rgba(0,0,0,0.38);
+  margin: 60rpx auto 0 auto;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.introduce text:last-child{
+  margin-bottom: 0;
+}
+.h1{
+  display: block;
+  font-size: 32rpx;
+  color: #565450;
+  margin-bottom: 40rpx;
+  text-align: center;
+  font-weight: bold;
+}
+.h3{
+  font-size: 28rpx;
+  color: #565450; 
+  display: block;
+  text-align: center;
+  margin-bottom: 14rpx;
+  position: relative;
+}
+.copy::after{
+  content: '复制';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 60rpx;
+  width: 94rpx;
+  height: 40rpx;
+  background: #FFDD1D;
+  border-radius: 4rpx;
+  font-size: 20rpx;
+  color: #565450;
+  line-height: 40rpx;
+}

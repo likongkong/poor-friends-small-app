@@ -1,0 +1,22 @@
+<view class="wrap">
+  <form bindsubmit="formSubmit">
+    <view class="section">
+      <textarea bindblur="bindTextAreaBlur" name="content" auto-height placeholder="说说你的看法....." />
+    </view>
+    <view class="add-photo-box">
+      <block wx:for="{{lists}}" wx:for-item="item">
+      <view class='photo-box'>
+        <view class="photo">
+          <image src='{{item.imgUrl}}?imageView2/1/w/400/h/400/q/75|imageslim'></image>
+        </view>
+      </view>
+      </block>
+      <view class="add-photo" bindtap="chooseWxImage">
+          <image class="add-icon" src="../../image/add-plus.png"></image>  
+      </view>
+    </view>
+    <view>
+      <button class="release" formType="submit">OK</button>
+    </view>
+  </form> 
+</view>

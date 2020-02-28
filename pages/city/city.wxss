@@ -1,0 +1,64 @@
+page{
+  background: #f0f0f0;
+}
+.wrap{
+  width: 100%;
+}
+.head{
+  width: 100%;
+  height: 142rpx;
+  background: #fff;
+  border-bottom: 2rpx solid #d7d7d7;
+  font-size: 32rpx;
+  color: #000;
+  line-height: 142rpx;
+  padding: 0 27rpx;
+  box-sizing: border-box;  
+}
+.content{
+  padding: 0 0 20rpx 0;
+}
+.classification text{
+  width: 100%;
+  height: 60rpx;
+  font-size: 20rpx;
+  color: #999999;
+  display: block;
+  line-height: 60rpx;
+  padding: 0 27rpx;
+  box-sizing: border-box;
+}
+.city-box{
+  width: 100%;
+  background: #fff;
+  padding: 0 27rpx;
+  box-sizing: border-box;
+}
+.city-name{
+  width: 100%;
+  height: 90rpx;
+  font-size: 26rpx;
+  background: #fff;
+  color: #333333;
+  line-height: 90rpx;
+  border-bottom: 1rpx solid #e6e6e6;
+}
+.city-box view:last-child{
+  border-bottom: none;
+}
+
+.letter{
+  position: fixed;
+  top: 150rpx;
+  right: 10rpx;
+  z-index: 10;
+  width: 30rpx;
+}
+.letter text{
+  width: 30rpx;
+  height: 40rpx; 
+  font-size: 20rpx;
+  display: block;
+  text-align: center;
+  line-height: 40rpx; 
+}

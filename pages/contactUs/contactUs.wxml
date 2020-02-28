@@ -1,0 +1,34 @@
+<view class='contact_way'>
+  <view>
+    <image class='qq' src='../../image/qq.png' mode='widthFix'></image>
+    <text>173211930</text>
+  </view>
+   <view>
+    <image class='weixin' src='../../image/weixin.png' mode='widthFix'></image>
+    <text>K00000_K</text>
+  </view>
+   <view>
+    <image class='weixin' src='../../image/weixin.png' mode='widthFix'></image>
+    <!-- <image class='toutiao' src='../../image/toutiao.png' mode='widthFix'></image> -->
+    <text>f76015638（飞聊）</text>
+  </view>
+   <view>
+    <image class='youxiang' src='../../image/QQyouxiang.png' mode='widthFix'></image>
+    <text>K_000000@foxmail.com</text>
+  </view>
+</view>
+
+<view class='introduce'>
+  <text class='h1'>公众号关联福利</text>
+  <text class='h3'>喜欢[宠物星球领养平台]的你</text>
+  <text class='h3'>无论是个人还是组织只要你有微信公众号</text>
+  <text class='h3'>就可以关联我们小程序</text>
+  <text class='h1' style='margin-top:72rpx;'>操作步骤</text>
+  <text class='h3'>1.登录微信公众号</text>
+  <text class='h3'>2.小程序管理-添加</text>
+  <text class='h3'>3.关联小程序</text>
+  <text class='h3'>4.输入小程序appid：</text>
+  <text class='h3 copy' bindtap='copyBtn' data-appid='wxc42334dfe0acfa72'>wxc42334dfe0acfa72 </text>
+  <text class='h3'>5.提交关联申请后，1周内审核通过 </text>
+  <text class='h3'>6.关联成功 </text>
+</view>

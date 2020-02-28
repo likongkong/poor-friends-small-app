@@ -1,0 +1,154 @@
+<view wx:if="{{isPage}}" class="load"></view>
+<image class='bg' src='../../image/bg.png' mode='widthFix'></image>
+<view class='head'>
+  <text class='head-name'>我的包裹</text>
+  <block wx:for="{{detail.customer_goods}}">
+    <view class='head-volleyball'>
+      <image src='{{item.goods.goods_picture}}' mode='widthFix'></image>
+      <text>{{item.goods.goods_name}}x{{item.count}}</text>
+    </view>
+  </block>
+</view>
+<view class="content {{isPX?'content-iphonex':''}}">
+  <text class='title'>今日签到奖励</text>
+  <view class='award'>
+    <block wx:for="{{detail.today_signed_reward}}">
+      <view data-rewardId='{{item.goods.reward_goods_id}}'>
+        <image src='{{item.goods.goods_picture}}' mode='widthFix'></image>
+        <text>{{item.goods.goods_name}}x{{item.reward_count}}</text>
+      </view>
+    </block>
+  </view>
+  <button wx:if="{{!detail.is_signed}}" class='signBtn' bindtap='signBtn'>签到</button>
+  <button wx:else class='signBtn'>今日已签到</button>
+
+  <view class="awardDetail">
+    <block wx:for="{{detail.active_info.activeDetail}}" wx:for-index='idx'>
+      <view class=' signBox' wx:if="{{idx!=0}}">
+        <view class='signBox-l'>
+          <text class='txt'>{{item.active_detail_title}}</text>
+          <view class='{{idx==1?"weekNum":"monthNum"}}'>
+            <text>{{item.continue_signed_count}}</text>天
+          </view>
+        </view>
+        <view class='signBox-r'>
+          <text class='txt'>{{item.active_detail_abstract}}</text>
+          <view>
+            <block wx:for="{{item.reward}}" wx:for-item="item1">
+              <view>
+                <image src='{{item1.goods.goods_picture}}' mode='widthFix'></image>
+                <text>{{item1.goods.goods_name}}x{{item1.reward_count}}</text>
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+<view class='footer'>
+  <view class='explain' bindtap='explain'>
+    <image src='../../image/explain.png' mode='widthFix'></image>
+    <text>详细说明</text>
+  </view>
+  <view class='recommend'>
+    <image src='../../image/recommend.png' mode='widthFix'></image>
+    <text>推荐好友</text>
+    <button open-type="share"></button>
+  </view>
+  <view class='shangcheng' bindtap='shangcheng'>
+    <image src='../../image/shangcheng.png' mode='widthFix'></image>
+    <text>兑换商城</text>
+  </view>
+</view>
+<view class='sign_mask {{isSign?"":"hide"}}'>
+  <view class='sign_succeed'>
+    <view class='sign_succeed-t'>
+      <text>签到成功</text>
+      <text>恭喜你获得以下奖励</text>
+      <view class='sign_gift'>
+        <block wx:for="{{signSuccess.customer_signed_reward}}">
+          <view>
+            <image src='{{item.goods.goods_picture}}' mode='widthFix'></image>
+            <text>{{item.goods.goods_name}}x{{item.customer_signed_reward_count}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class='sign_succeed-b' bindtap='closeMask'>
+      确定
+    </view>
+  </view>
+</view>
+<view class='store_mask {{iseStore?"":"hide"}}'>
+  <view class='store_box'>
+    <view class='store_title'>
+      <image src='../../image/titlebg.png' mode='widthFix'></image>
+      <text>兑换商城</text>
+    </view>
+    <view class='store_content'>
+      <text>正在建造…</text>
+      <image src='../../image/inconstruction.png' mode='widthFix'></image>
+      <button bindtap='closeMask'>确定</button>
+    </view>
+  </view>
+</view>
+<view class='explain_mask {{iseExplain?"":"hide"}}' catchtap='closeMask'>
+  <view class='explain_box'>
+    <view class='store_title'>
+      <image src='../../image/titlebg.png' mode='widthFix'></image>
+      <text>详细说明</text>
+    </view>
+    <view class='explain_content'>
+      <view class='white_box'>
+        <text class='h1'>签到可获得奖励</text>
+      </view>
+      <view class='yellow_box'>
+        <view>
+          <image src='../../image/volleyball.png' mode='widthFix'></image>
+        </view>
+        <view>
+          <text>皮球</text>
+          <text>签到可获得皮球，用于兑换商城兑换奖励</text>
+        </view>
+      </view>
+      <view class='white_box'>
+        <text class='h1'>累计签到达3天、7天均可以获得奖励</text>
+      </view>
+      <view class='yellow_box'>
+        <view>
+          <image src='../../image/molar.png' mode='widthFix'></image>
+        </view>
+        <view>
+          <text>磨牙棒</text>
+          <text>累计签到3天，7天签到额外获得磨牙棒x1，用于兑换商城兑换奖励</text>
+        </view>
+      </view>
+      <view class='white_box'>
+        <text class='h1'>连续签到30天，可获得奖励</text>
+      </view>
+      <view class='yellow_box'>
+        <view>
+          <image src='../../image/recommend.png' mode='widthFix'></image>
+        </view>
+        <view>
+          <text>额外奖励</text>
+          <text>获得月礼包含皮球x10，磨牙棒x2</text>
+        </view>
+      </view>
+      <view class='white_box'>
+        <text class='h2'>以上内容最终解释权归宠物星球领养平台所有</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="login {{is_loginBox?'show':'hide'}}">
+  <view>
+    <text class='login-title'>登录宠物星球</text>
+    <button class='wx-login' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">
+      <image src='../../image/wx.png' mode='widthFix'></image>
+      <text class='color3'>微信账号快速登录</text>
+    </button>
+  </view>
+</view>

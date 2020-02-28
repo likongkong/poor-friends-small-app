@@ -1,0 +1,14 @@
+<view class="wrap">
+  <view class="card">
+    <view class="cooperation-left">
+      <view>
+      
+      </view>
+    </view>
+    <view class="cooperation-right">
+      <text class="name">Kzcc</text>
+      <text class="txt">微信：cc0821_</text>
+      <text class="txt">邮箱：king.cjz@foxmail.com</text>
+    </view>
+  </view>
+</view>

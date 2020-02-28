@@ -1,0 +1,76 @@
+{
+  "pages": [
+    "pages/pagehome/index",
+    "pages/petKnowledge/index",
+    "pages/myAdoption/myAdoption",
+    "pages/new-index/index",
+    "pages/myCreate/myCreate",
+    "pages/myLike/myLike",
+    "pages/myCenter/myCenter",
+    "pages/receiveApply/receiveApply",
+    "pages/collection/collection",
+    "pages/contactUs/contactUs",
+    "pages/adoptApply/adoptApply",
+    "pages/my/my",
+    "pages/index/index",
+    "pages/activity/activity",
+    "pages/ceshi/index",
+    "pages/newsDetail/index",
+    "pages/userinfo/index",
+    "pages/adduserinfo/index",
+    "pages/create/create",
+    "pages/city/city",
+    "pages/search/search",
+    "pages/noadopt/noadopt",
+    "pages/releasedynamic/releasedynamic"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFDD1D",
+    "navigationBarTitleText": "宠物星球",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#A0A0A0",
+    "selectedColor": "#FFDD1D",
+    "backgroundColor": "#000",
+    "list": [
+      {
+        "pagePath": "pages/pagehome/index",
+        "iconPath": "image/home-2.png",
+        "selectedIconPath": "image/home-1.png",
+        "text": "趣闻"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/adopt-2.png",
+        "selectedIconPath": "image/adopt-1.png",
+        "text": "领养"
+      },
+      {
+        "pagePath": "pages/create/create",
+        "iconPath": "image/give-2.png",
+        "selectedIconPath": "image/give-1.png",
+        "text": "送养"
+      },
+      {
+        "pagePath": "pages/activity/activity",
+        "iconPath": "image/huodong-2.png",
+        "selectedIconPath": "image/huodong-1.png",
+        "text": "活动"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "image/mine-2.png",
+        "selectedIconPath": "image/mine-1.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

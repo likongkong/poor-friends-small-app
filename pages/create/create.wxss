@@ -1,0 +1,385 @@
+page {
+  width: 100%;
+  height: 100%;
+}
+.active text{
+  background: #FFDD1D;
+  border: none
+}
+
+.wrap {
+  width: 100%;
+  height: 100%;
+}
+.head {
+  width: 100%;
+  padding: 34rpx 40rpx 0 40rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.portrait {
+  display: inline-block;
+  float: left;
+}
+
+.head view:nth-child(3n) {
+  margin-right: 0;
+}
+
+.deletePic{
+  font-size: 20rpx;
+  padding: 20rpx 40rpx;
+  box-sizing: border-box;
+  color: red
+}
+
+.portrait-box {
+  width: 196rpx;
+  height: 196rpx;
+  background: #e3e3e3;
+  margin-right: 39rpx;
+  float: left;
+  margin-bottom: 10rpx;
+}
+
+.portrait-box image {
+  width: 196rpx;
+  height: 196rpx;
+}
+
+.add-portrait {
+  width: 192rpx;
+  height: 192rpx;
+  border: 2rpx dashed #e3e3e3;
+  float: left;
+  text-align: center;
+}
+
+.add-portrait image {
+  width: 72rpx;
+  height: 72rpx;
+  margin-top: 60rpx;
+}
+
+.content {
+  width: 100%;
+  padding-bottom: 52rpx;
+  padding-top: 28rpx;
+  box-sizing: border-box;
+}
+/* 
+.module {
+  width: 670rpx;
+  border-bottom: 1rpx solid #e6e6e6;
+  margin-left: 40rpx;
+  position: relative;
+}
+
+.module text {
+  display: block;
+  font-size: 24rpx;
+  font-weight: 200;
+  color: #636363;
+  margin-top: 20rpx;
+}
+
+.module input {
+  width: 694rpx;
+  min-height: 60rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: #000;
+  font-weight: bold;
+} */
+
+/* textarea {
+  width: 670rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  padding: 14rpx 0;
+  color: #323232;
+  text-align: left;
+} */
+
+/* .address view {
+  width: 90%;
+}
+
+.address view input {
+  width: 100%;
+}
+
+.address .loading {
+  width: 36rpx;
+  height: 36rpx;
+  margin-top: 26rpx;
+}
+
+.address .add-icon {
+  width: 26rpx;
+  height: 36rpx;
+  position: absolute;
+  top: 46rpx;
+  right: 0;
+} */
+
+.agreement {
+  font-size: 24rpx;
+  text-align: center;
+  padding-top: 36rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.agreement image {
+  width: 25rpx;
+  margin-right: 15rpx;
+}
+
+.agreement text {
+  width: 694rpx;
+  display: block;
+  font-size: 20rpx;
+  color: #636363;
+  text-align: center;
+  font-weight: 200
+}
+
+.btn {
+  width: 360rpx;
+  height: 68rpx;
+  background: #ffdd1d;
+  border-radius: 68rpx;
+  font-size: 28rpx;
+  color: #000;
+  text-align: center;
+  line-height: 68rpx;
+  margin: 52rpx auto 0 auto;
+}
+.btn1 {
+  width: 360rpx;
+  height: 68rpx;
+  background: #ffdd1d;
+  border-radius: 68rpx;
+  font-size: 28rpx;
+  color: #000;
+  text-align: center;
+  line-height: 68rpx;
+  margin: 52rpx auto 0 auto;
+}
+
+/* .btn::after {
+  border: none;
+} */
+
+.disclaimer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.disclaimer-mask {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.24;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.disclaimer-box {
+  width: 520rpx;
+  height: 400rpx;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.disclaimer-box view {
+  width: 100%;
+  height: 100rpx;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #ffc926;
+  font-size: 40rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 100rpx;
+  font-weight: 200;
+}
+
+.disclaimer-box text {
+  display: block;
+  text-align: center;
+  font-size: 28rpx;
+}
+
+.disclaimer-box .title {
+  font-weight: bold;
+  color: #000;
+  margin: 27rpx 0 40rpx 0;
+  font-size: 32rpx;
+}
+
+
+
+.swiper{
+  width: 100%;
+  height: 100%;
+}
+.scroll_view{
+  position: absolute;
+  top: 0;
+  bottom: 52rpx;
+}
+.form{
+  width: 100%;
+  display: block;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+}
+.title-h1{
+  width: 100%;
+  font-size: 36rpx;
+  color: #000000;
+  font-weight: bold;
+  margin-top: 40rpx;
+  display: inline-block;
+}
+.title-h2{
+  font-size: 28rpx;
+  color: #000;
+  margin-top: 28rpx;
+  display: inline-block;
+}
+.actuality {
+  margin-top: 16rpx;
+}
+.label_box{
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.label_box text{
+  width: 160rpx;
+  height: 52rpx;
+  display: inline-block;
+  border: 2rpx solid #F4F4F4;
+  border-radius: 26rpx;
+  font-size: 24rpx;
+  color: #636363;
+  text-align: center;
+  line-height: 52rpx;
+  /* margin-right: 60rpx; */
+}
+.label_box text:last-child{
+  /* margin-right: 0; */
+}
+.input{
+  height: 82rpx;
+  border-bottom: 2rpx solid #EAEAEA;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+/* .input::before{
+  content: '';
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 12rpx;
+  background: #E7E7E7;
+  position: absolute;
+  bottom: 12rpx;
+  right: 10rpx;
+} */
+
+.input input{
+  width: 100%;
+  font-size: 24rpx;
+  color: #999;
+  font-weight: 200;
+}
+.textarea_box{
+  position: relative;
+}
+.textarea{
+  width: 100%;
+  height: 160rpx;
+  border: 2rpx solid #F4F4F4;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  color: #999;
+  box-sizing: border-box;
+  margin-top: 30rpx;
+}
+.textareaMask{
+  width: 100%;
+  height: 160rpx;
+  border: 2rpx solid #F4F4F4;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  color: #d5d5d5;
+  padding: 14rpx 14rpx;
+  box-sizing: border-box;
+  margin-top: 30rpx;
+}
+.actuality_label{
+  overflow: hidden;
+}
+.actuality_label view{
+  display: inline-block;
+  margin-right: 8rpx;
+  float: left;
+  margin-top: 16rpx;
+}
+.actuality_label text{
+  height: 52rpx;
+  padding: 0 22rpx;
+  box-sizing: border-box;
+  font-size: 24rpx;
+  color: #636363;
+  border: 2rpx solid #F4F4F4;
+  border-radius: 26rpx;
+  display: inline-block;
+  line-height: 52rpx;
+  /* margin-top: 30rpx; */
+  margin-right: 26rpx;
+}
+.address .input image{
+  width: 20rpx;
+  height: 30rpx;
+  position: absolute;
+  right: 0;
+  bottom: 26rpx;
+}
+.address .input::before{
+  display: none
+}
+.address input{
+  padding-right: 60rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: normal
+}
+.btn_box{
+  display: flex;
+  justify-content: space-between
+}
+.btn_box button{
+  width: 300rpx;
+}
+

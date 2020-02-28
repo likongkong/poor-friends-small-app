@@ -1,0 +1,21 @@
+<view class="wrap">
+
+  <block wx:for="{{dataList}}" wx:for-item="item">      
+  <view class="collection-list" bindtap="adopterChoice" data-id="{{item.id}}" data-fosterid="{{item.foster_id}}" data-url="{{item.customer_header_picture}}">
+    <view class="collection-list-left">
+      <view>
+          <image src="{{item.customer_header_picture}}"></image>
+      </view>
+      <text>{{item.customer_name}}</text>
+    </view>
+    <view class="collection-list-right">
+      {{item.created_at}}
+    </view>
+  </view>
+  </block>
+  <view class='no_sy' wx:if="{{is_no_data}}" >
+    <image src='../../image/placeholdr.png'></image>
+    <text>暂时没有领养人...</text>
+  </view>
+  
+</view>

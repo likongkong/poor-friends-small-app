@@ -1,0 +1,40 @@
+.wrap{
+  width: 100%;
+  padding: 30rpx 0;
+}
+.card{
+  height: 186rpx;
+}
+.card view{
+  float: left;
+}
+.cooperation-left{
+  width: 174rpx;
+  height: 186rpx;
+  padding: 30rpx 0 0 30rpx;
+  box-sizing: border-box;
+  float: left;
+}
+.cooperation-left view{
+  width: 120rpx;
+  height: 120rpx;
+  background: #333;
+}
+.cooperation-right{
+  width: 524rpx;
+  float: right;
+}
+.cooperation-right text{
+  display: block;
+  width: 100%;
+}
+.name{
+  font-size: 28rpx;
+  color: #323232;
+  margin-top: 30rpx;
+}
+.txt{
+  font-size: 24rpx;
+  color: #969696;
+  margin-top: 6rpx;
+}

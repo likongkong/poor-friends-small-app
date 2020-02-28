@@ -1,0 +1,259 @@
+<view class="wrap" style="padding-bottom: 92rpx"> 
+<!-- <view class="wrap" style="{{isPX?'padding-bottom: 120rpx':'padding-bottom: 92rpx'}}">  -->
+  <button open-type="share" class="share"><image src="../../image/share1.png" mode="widthFix"></image></button>
+  <view class="head-photo"> 
+      <!-- <swiper indicator-dots="{{indicatorDots}}" 
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}"> 
+        <block wx:for="{{imgUrls}}"> 
+          <swiper-item> 
+            <image src="{{item}}?imageView2/1/w/375/h/225/q/100"  class="slide-image"/> 
+          </swiper-item> 
+        </block> 
+      </swiper>  -->
+      <swiper class="swiper-block" indicator-dots="{{indicatorDots}}"  bindchange="swiperChange"
+        autoplay="true" circular="true" previous-margin="86rpx" next-margin="13rpx"> 
+        <block wx:for="{{imgUrls}}"> 
+          <swiper-item class="swiper-item"> 
+            <image class="slide-image {{swiperIndex == index ? 'active' : ''}}" src="{{item}}?imageView2/1/w/520/h/380/q/100" /> 
+          </swiper-item> 
+        </block> 
+      </swiper> 
+  </view> 
+  <view class="detail"> 
+    <view class="title">{{dataInfo.foster_title}}</view>
+    <view class="lable">
+      <text>{{dataInfo.family_id == 10?'汪星人':dataInfo.family_id == 20?'喵星人':'其他物种'}}</text>
+      <text>{{dataInfo.foster_sex == 1?'小王子':dataInfo.family_id == 2?'小公举':'未知'}}</text>
+      <text>{{dataInfo.foster_age}}</text>
+    </view>
+    <view class="box">
+      <view> <image src="../../image/adopt.png"  mode="widthFix"></image> </view>
+      <text>{{dataInfo.foster_name}} 【{{dataInfo.species_name}}】</text>
+    </view>
+    <view class="box">
+      <view> <image src="../../image/info.png"  mode="widthFix"></image> </view>
+      <text>{{dataInfo.foster_sterilizations == 10?'不详':dataInfo.foster_sterilizations == 20?'已绝育':'未绝育'}} {{dataInfo.foster_insect_repellent == 10?'未知':dataInfo.foster_insect_repellent == 20?'已驱虫':'未驱虫'}} {{dataInfo.foster_vaccine == 10?'不详':dataInfo.foster_vaccine == 20?'已接种':dataInfo.foster_vaccine == 30?'未接种':'接种中'}}</text>
+    </view>
+    <view class="box">
+      <view> <image src="../../image/laiyan.png"  mode="widthFix"></image> </view>
+      <text>{{dataInfo.foster_source == 10?'家养':dataInfo.foster_source == 20?'救助站':'个人救助'}} </text>
+    </view>
+    <view class="box">
+      <view> <image src="../../image/dizhi.png"  mode="widthFix"></image> </view>
+      <text>{{dataInfo.foster_address}} </text>
+    </view>
+    <!-- <image wx:if="{{is_focus}}" data-id='{{id}}' catchtap='collection' src="../../image/like_highlight.png"></image> 
+    <image wx:else data-id='{{id}}' catchtap='collection' src="../../image/like.png"></image> 
+    <view class="title"> 
+      <view class=""> 
+        {{dataInfo.foster_title}} 
+      </view> 
+    </view> 
+    <view class="txt"> 
+      <view> 
+        名字：{{dataInfo.foster_name}} 
+      </view> 
+      <view> 
+        年龄：{{dataInfo.foster_age}} 
+      </view> 
+    </view> 
+    <view class="txt"> 
+      <view> 
+        性别：{{dataInfo.foster_sex}} 
+      </view> 
+      <view> 
+        品种：【{{dataInfo.species_name}}】 
+      </view> 
+    </view> 
+    <text class="address">地址：{{dataInfo.foster_address}}</text>  -->
+  </view> 
+  <view class="requirements marginT6">
+    <view class="title">领养要求</view>
+    <view class="box">
+      <block wx:for="{{dataInfo.adopt_require_detail}}">    
+        <text>{{item}}</text>   
+      </block> 
+      <text wx:if="{{dataInfo.adopt_require!=''}}">{{dataInfo.adopt_require}}</text>   
+    </view>
+  </view>
+  <view class="introduce marginT6">
+    <view class="title">宠物介绍</view>
+    <view class="box">{{dataInfo.foster_introduce}}</view>
+  </view>
+
+  <view class="autonymInfo marginT6" wx:if="{{detailType != 3}}">
+    <view class="title">送养人信息</view>
+    <view class="userInfo">
+      <view class="name">
+        <image src="{{dataInfo.customer_header_picture}}" mode="widthFix"></image>
+        <view>
+          <text class="text">{{dataInfo.customer.customer_name}}</text>
+          <text class="text1" wx:if="{{dataInfo.customer.customerRealAuth!=null}}">已实名</text>
+        </view>
+      </view>
+      <view class="phone" bindtap="{{detailType != 4?'userInfo':''}}">
+        <image src="{{detailType == 4?'../../image/phone2.png':'../../image/phone1.png'}}" mode="widthFix"></image>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="conditions"> 
+    <view class="requirements conditions-box"> 
+      <text>领养要求：</text> 
+      <view class="border1"> 
+        {{dataInfo.adopt_require}} 
+      </view> 
+    </view> 
+    <view class="why conditions-box" wx:if="{{dataInfo.foster_introduce != ''}}"> 
+      <text>宠物介绍：</text> 
+      <view class=""> 
+        {{dataInfo.foster_introduce}} 
+      </view> 
+    </view> 
+  </view>  -->
+
+  <view class="comment marginT6 " wx:if="{{dataInfo.dynamic.length!=0}}">
+    <view class='comment_title'><text>最新评论</text></view>
+    <view class="comment_c">
+      <block wx:for="{{dataInfo.dynamic}}" wx:for-item="item"> 
+        <view class="comment_m">
+          <view class="comment_m_t">
+            <view class="portrait">
+              <image src="{{item.customer_header_picture}}" mode="widthFix"></image>
+            </view>
+            <view class="info">
+              <text class="name">{{item.customer_name}}</text>
+              <text class="txt">{{item.dynamic_content}}</text>
+              <view>
+                <text class="time">{{item.created_at}}</text>
+                <text class="btn" data-customerid="{{item.id}}" data-name="回复{{item.customer_name}}" bindtap="writeBack">回复</text>
+              </view>
+            </view>
+          </view>
+          <view class="comment_m_b" wx:if="{{item.son_dynamics!=''}}">
+            <block wx:for="{{item.son_dynamics}}" wx:for-item="items"> 
+              <view wx:if="{{item.id == items.dynamic_parent_id}}" data-customerid="{{items.id}}" data-name="回复{{items.customer_name}}" bindtap="writeBack">
+                <text>{{items.customer_name}}</text>:{{items.dynamic_content}}
+              </view>
+              <view wx:else data-customerid="{{items.id}}" data-name="回复{{items.customer_name}}" bindtap="writeBack">
+                <text>{{items.customer_name}}</text>回复<text>{{items.dynamicParentInfo.customer_name}}</text>:{{items.dynamic_content}}
+              </view>
+            </block>
+          </view>
+        </view>
+      </block>
+    </view>
+    <!-- <view class='no_sy' wx:else>
+      <image src='../../image/placeholdr.png'></image>
+      <text>暂时没有评论哦...</text>
+    </view> -->
+  </view>
+
+  <!-- <view class="about-box" wx:if="{{dataInfo.dynamic.length != 0}}"> 
+    <view class="about"> 
+      <text class="about-title">Love me</text> 
+       
+      <block wx:for="{{dataInfo.dynamic}}" wx:for-item="item">       
+      <view class="about-user"> 
+        <view class="about-head"> 
+          <view class="about-head-photo"> 
+            <image src="{{item.customer_header_picture}}"></image> 
+          </view> 
+          <text>{{item.customer_name}}</text> 
+        </view> 
+        <view class="about-time"> 
+          {{item.created_at}} 
+        </view> 
+      </view> 
+      <text class="about-txt">{{item.dynamic_content}}</text> 
+      <view class="about-photo"> 
+        <block wx:for="{{item.dynamic_photos}}">       
+        <view> 
+            <image src="{{item}}"></image> 
+        </view> 
+        </block> 
+      </view> 
+      </block> 
+ 
+    </view> 
+  </view>  -->
+  <!-- <view class="foter {{isPX?'foterX':''}}">  -->
+  <view class="foter"> 
+    <view class="comment_input">
+      <view data-customerid="0"  data-name="评论" bindtap="writeBack">
+        <image src="../../image/edit.png" mode="widthFix"></image>
+        <input type="text" placeholder="说点什么..." disabled="true"></input>
+      </view>
+      <image data-id="{{dataInfo.id}}"  bindtap="collection" src="{{dataInfo.is_followed==0?'../../image/like.png':'../../image/like_highlight.png'}}" mode="widthFix"></image>
+    </view>
+    <view class="btn" style="{{detailType == 4 || dataInfo.is_selected == 2?'background:#f4f4f4':''}}">
+      <view wx:if="{{dataInfo.is_selected == 2}}">
+        <text style="opacity: .3">审核未通过</text>
+      </view>
+      <view>
+        <text wx:if='{{detailType == 1}}' bindtap="wantYou">我要领养</text>
+        <text wx:elif='{{detailType == 2}}'>等待审核</text>
+        <text wx:elif='{{detailType == 3}}' bindtap="adopterList">查看申请</text>
+        <text style="opacity: .3" wx:else>已被领养</text>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="inputbox {{focus?'fadeIn':''}}" wx:if="{{focus}}">
+    <input type="text" placeholder="{{placeholder}}" confirm-type='send' data-id="{{dataInfo.id}}" focus="{{focus}}" bindblur="bindblur" bindconfirm="comment"></input>
+  </view>
+  
+  <!-- <view class="foter"> 
+    <view class='adopt-v' wx:if="{{detailType == 1}}"> 
+      <text class="adopt" bindtap="wantYou">我要领养</text> 
+    </view> 
+    <view class='hasscheduled-v' wx:elif="{{detailType == 2}}"> 
+      <text class="hasscheduled">预订中</text> 
+    </view> 
+    <view class='intentionally-v' wx:elif="{{detailType == 3}}"> 
+      <text class="intentionally" bindtap="adopterList">查看意向领养人名单</text>  
+    </view> 
+    <view class='thank-watch-v' wx:elif="{{detailType == 4}}"> 
+      <text class="thank-watch">已被领养</text> 
+    </view> 
+    <view class='latest-dynamic-v' wx:else> 
+      <text class="latest-dynamic" bindtap="releaseDetail">发布它的最新动态</text>    
+    </view> 
+  </view>  -->
+  <view class="noMore {{is_more==true?'show':'hide'}}">
+    <view>
+      <image src='../../image/placeholdr.png'></image>
+      <text>数据被本汪吃掉了...</text>
+    </view>
+  </view>
+
+  
+</view>
+
+<view class="contactMask" wx:if="{{contactMask}}">
+  <view class="black" bindtap="close"></view>
+  <view class="box" wx:if="{{detailType == 1}}">
+    <image class='lingyang' src="../../image/lingyang.png" mode="widthFix"></image>
+    <text class="close" bindtap="close">关闭</text>
+  </view>
+  <view class="box" wx:else>
+    <text class="close" bindtap="close">关闭</text>
+    <image class="head" src="{{dataInfo.customer_header_picture}}" mode="widthFix"></image>
+    <text class="wx">微信：{{dataInfo.foster_wx_number}}</text>
+    <text class="call">手机号：{{dataInfo.foster_phone}}</text>
+    <view class="btn" data-tel="{{dataInfo.foster_phone}}" bindtap="callPhone">
+      <image src="../../image/phone.png" mode="widthFix"></image>
+    </view>
+  </view>
+</view>
+
+<view class="login {{is_loginBox==true?'show':'hide'}}">
+  <view>
+    <view class='gb-img' bindtap='chooseLoginHide'><image src='../../image/gb.png'></image></view>
+    <text class='login-title'>登录宠物星球</text>
+    <button class='wx-login' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">
+        <image src='../../image/wx.png' mode='widthFix'></image>
+        <text class='color3'>微信账号快速登录</text>
+    </button>
+  </view>
+</view> 

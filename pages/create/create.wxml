@@ -1,0 +1,272 @@
+<!--logs.wxml-->
+<!-- 
+<view class="wrap">
+  <view class="head">
+    <block wx:for="{{lists}}" wx:for-item="item">
+      <view class="portrait-box" id="{{item.imgId}}" bindlongpress="longpress">
+        <image src='{{item.imgUrl}}?imageView2/1/w/400/h/400/q/75|imageslim'></image>
+      </view>
+    </block>
+    <view class="add-portrait" bindtap="chooseWxImage">
+      <image class="add-icon" src="../../image/add-plus.png"></image>  
+    </view>
+  </view>
+  <view class="content">
+     <form bindsubmit="formSubmit">
+      <view class="module title">
+        <text>标题</text>
+        <input type="text" data-name='title' name='title' maxlength='18' placeholder="" value='{{title}}' bindinput='verification'/>
+      </view>
+      <view class="module address">
+        <view bindtap="chooseLocation">
+          <text>选择地址</text>
+          <input type="text" name='address' disabled='true' value='{{locationAddress}}' placeholder=""/>
+        </view>
+        <image class="add-icon" src="../../image/address_2.png"></image>  
+      </view>
+      <picker bindchange="bindPickerChangeType" range="{{typeArray}}">
+        <view class="module gender">
+          <text>动物科类</text>
+          <input type="text" name='animaltype' disabled='true' placeholder="" value='{{typeArrayTxt}}' />
+        </view>
+      </picker>
+      <view class="module varieties">
+        <text>品种</text>
+        <input type="text" data-name='varieties' name='varieties' maxlength='6' placeholder="" value='{{varieties}}' bindinput='verification'/>
+      </view>
+      <picker bindchange="bindPickerChangeSex" range="{{sexArray}}">
+        <view class="module gender">
+          <text>性别</text>
+          <input type="text" name='sex' disabled='true' placeholder="" value='{{sexArrayTxt}}' />
+        </view>
+      </picker>
+      <view class="module age">
+        <text>年龄</text>
+        <input type="text" data-name='age' name='age' placeholder="" value='{{age}}' bindinput='verification'/>
+      </view>
+      <view class="module name">
+        <text>名字</text>
+        <input type="text" maxlength='6' data-name='name' name='name' placeholder="" value='{{name}}' bindinput='verification'/>
+      </view>
+     <view class="module phone">
+        <text>手机号</text>
+        <input type="text" data-name='phone' name='phone' placeholder="" value='{{phone}}' bindinput='verification'/>
+      </view>
+      <view class="module wxnumber">
+        <text>微信号</text>
+        <input type="text" data-name='wxnumber' name='wxnumber' placeholder="" value='{{wxnumber}}' bindinput='verification'/>
+      </view>
+      <view class="module">
+        <text>领养要求</text>
+        <textarea class='adopt' auto-height data-name='adopt' name='adopt' placeholder="" value='{{adopt}}' bindinput='verification'/>
+      </view>
+      <view class="module">
+        <text>宠物介绍（选填）</text>
+        <textarea class='introduce' auto-height data-name='introduce' name='introduce' placeholder="" value='{{introduce}}' bindinput='verification'/>
+      </view>
+      <view class="agreement">
+        <text>平台发布的所有信息；只负责发布与展示；与平台本身无关；不负任何责任</text>
+      </view>
+
+      <view>
+        <button class="btn" formType="submit">OK</button>
+      </view>
+    </form> 
+  </view>
+</view>
+
+
+<view wx:if="{{mask}}" class='disclaimer'>
+  <view class='disclaimer-mask' bindtap='close'></view>
+  <view class='disclaimer-box'>
+    <text class='title'>免责声明</text>
+    <text>平台发布的所有信息（收费/免费）；</text>
+    <text>平台只负责发布与展示；</text>
+    <text>与平台本身无关；</text>
+    <text>平台不负任何责任。</text>
+    <view bindtap='close1'>同意</view>
+  </view>
+</view> -->
+
+<swiper class='swiper' duration="500" easing-function="easeInOutCubic" current="{{current}}" circular="true">
+  <swiper-item catchtouchmove='catchTouchMove'>
+    <scroll-view scroll-y class='scroll_view'>
+      <view class="head">
+        <block wx:for="{{lists}}" wx:for-item="item">
+          <view class="portrait-box" id="{{item.imgId}}" bindlongpress="longpress">
+            <image src='{{item.imgUrl}}?imageView2/1/w/400/h/400/q/75|imageslim'></image>
+          </view>
+        </block>
+        <view class="add-portrait" bindtap="chooseWxImage">
+          <image class="add-icon" src="../../image/add-plus.png"></image>  
+        </view>
+      </view>
+      <text class="deletePic" wx:if="{{lists !=''}}">*长按可以删除</text>
+      <form class='form' bindsubmit="nextFormSubmit">
+        <text class='title-h1'>宠物信息</text>
+        <view class='sort module'>
+          <text class='title-h2'>类别</text>
+          <radio-group class="label_box" data-item="sortRadioItems" data-name="sort" bindchange="radioChange">
+            <view wx:for="{{sortRadioItems}}">
+              <label class="label {{item.checked ?'active': ''}}">
+                <radio id="{{item.name}}" hidden value="{{item.name}}" checked="{{item.checked}}"></radio>
+                <text>{{item.value}}</text>
+              </label>
+            </view>
+          </radio-group>
+        </view>
+        <view class='sex module'>
+          <text class='title-h2'>性别</text>
+          <radio-group class="label_box" data-item="sexRadioItems" data-name="sex" bindchange="radioChange">
+            <view wx:for="{{sexRadioItems}}">
+              <label class="label {{item.checked ?'active': ''}}">
+                <radio id="{{item.name}}" hidden value="{{item.name}}" checked="{{item.checked}}"></radio>
+                <text>{{item.value}}</text>
+              </label>
+            </view>
+          </radio-group>
+        </view>
+        <view class='name module'>
+          <text class='title-h2'>标题</text>
+          <view class='input'>
+            <input type='text' name='title' maxlength="20" placeholder-style='color: #d5d5d5' placeholder='请输入标题' value="{{title}}"></input>
+          </view>
+        </view>
+        <view class='name module'>
+          <text class='title-h2'>名字</text>
+          <view class='input'>
+            <input type='text' name='name' maxlength="6" placeholder-style='color: #d5d5d5' placeholder='请输入宠物名字' value="{{petName}}"></input>
+          </view>
+        </view>
+        <view class='age module'>
+          <text class='title-h2'>年龄</text>
+          <picker bindchange="bindPickerChange" value="{{index}}" range="{{ageArray}}" range-key="name">
+            <view class='input'>
+              <input type='text' name='age' disabled='disabled' placeholder-style='color: #d5d5d5' placeholder='请选择宠物年龄' value='{{ageArray[index].name}}'></input>
+            </view>
+          </picker>
+        </view>
+        <view class='variety module'>
+          <text class='title-h2'>品种</text>
+          <view class='input'>
+            <input type='text' name='variety' maxlength="6" placeholder-style='color: #d5d5d5' placeholder='请输入宠物品种' value="{{petVariety}}"></input>
+          </view>
+        </view>
+        <text class='title-h1'>宠物现状</text>
+        <view class='jue_yu module'>
+          <text class='title-h2'>绝育</text>
+          <radio-group class="label_box" data-item="jueyuRadioItems" data-name="jueyu" bindchange="radioChange">
+            <view wx:for="{{jueyuRadioItems}}">
+              <label class="label {{item.checked ?'active': ''}}">
+                <radio id="{{item.name}}" hidden value="{{item.name}}" checked="{{item.checked}}"></radio>
+                <text>{{item.value}}</text>
+              </label>
+            </view>
+          </radio-group>
+        </view>
+        <view class='qu_chong module'>
+          <text class='title-h2'>驱虫</text>
+          <radio-group class="label_box" data-item="quchongRadioItems" data-name="quchong" bindchange="radioChange">
+            <view wx:for="{{quchongRadioItems}}">
+              <label class="label {{item.checked ?'active': ''}}">
+                <radio id="{{item.name}}" hidden value="{{item.name}}" checked="{{item.checked}}"></radio>
+                <text>{{item.value}}</text>
+              </label>
+            </view>
+          </radio-group>
+        </view>
+        <view class='lai_yuan module'>
+          <text class='title-h2'>来源</text>
+          <radio-group class="label_box" data-item="laiyuanRadioItems" data-name="laiyuan" bindchange="radioChange">
+            <view wx:for="{{laiyuanRadioItems}}">
+              <label class="label {{item.checked ?'active': ''}}">
+                <radio id="{{item.name}}" hidden value="{{item.name}}" checked="{{item.checked}}"></radio>
+                <text>{{item.value}}</text>
+              </label>
+            </view>
+          </radio-group>
+        </view>
+        <view class='yi_miao module'>
+          <text class='title-h2'>疫苗</text>
+          <radio-group class="label_box" data-item="yimiaoRadioItems" data-name="yimiao" bindchange="radioChange">
+            <view wx:for="{{yimiaoRadioItems}}">
+              <label class="label {{item.checked ?'active': ''}}">
+                <radio id="{{item.name}}" hidden value="{{item.name}}" checked="{{item.checked}}"></radio>
+                <text>{{item.value}}</text>
+              </label>
+            </view>
+          </radio-group>
+        </view>
+        <view>
+          <button class="btn" formType="submit" >下一步</button>
+        </view>
+      </form> 
+    </scroll-view>
+  </swiper-item>
+  <swiper-item catchtouchmove='catchTouchMove'>
+    <scroll-view scroll-y class='scroll_view'>
+     <form class='form' bindsubmit="formSubmit">
+        <text class='title-h1'>领养要求</text>
+        <view class='actuality module'>
+          <checkbox-group class="actuality_label" bindchange="checkboxChange">
+            <view wx:for="{{actualityItems}}">
+              <label class="{{item.checked ?'active': ''}}">
+                <checkbox hidden value="{{item.value}}" checked="{{item.checked}}"></checkbox>
+                <text>{{item.value}}</text>
+              </label>
+            </view>
+          </checkbox-group>
+          <view class='textarea_box'>
+            <view class='textareaMask' data-index='0' wx:if="{{textareaMask}}" bindtap='textareaMask' >{{actualityVal}}</view>
+            <textarea data-index='0' class="textarea {{textareaMask?'hide':''}}" maxlength='30' placeholder-style='color: #d5d5d5' placeholder='请输入30字以内其他信息' focus="{{actualityFocus}}" bindinput="bindinput" bindblur='bindblur' value="{{actualityVal1}}"></textarea>
+          </view>
+        </view>
+        <text class='title-h1'>宠物介绍</text>
+        <view class='describe module'>
+          <view class='textarea_box'> 
+            <view class='textareaMask' data-index='1' wx:if="{{textareaMask}}" bindtap='textareaMask'>{{describeVal}}</view>
+            <textarea data-index='1' class="textarea {{textareaMask?'hide':''}}" maxlength='100' placeholder-style='color: #d5d5d5' placeholder='请输入100字以内宠物的故事及宠物的信息' focus="{{describeFocus}}" bindinput="bindinput" bindblur='bindblur' value="{{describeVal1}}"></textarea>
+          </view>
+        </view>
+        <text class='title-h1'>联系方式</text>
+        <view class='wx module'>
+          <text class='title-h2'>微信号</text>
+          <view class='input'>
+            <input type='text' name='wxnumber' placeholder-style='color: #d5d5d5' placeholder='请输入微信号' value="{{wxnumber}}"></input>
+          </view>
+        </view>
+        <view class='phone module'>
+          <text class='title-h2'>手机号</text>
+          <view class='input'>
+            <input type='text' name='phone' maxlength="11" placeholder-style='color: #d5d5d5' placeholder='请输入正确的11位手机号' value="{{phone}}"></input>
+          </view>
+        </view>
+        <view class='address module' bindtap="chooseLocation">
+          <text class='title-h2'>地址</text>
+          <view class='input'>
+            <input type="text" name='address' placeholder-style='color: #d5d5d5' disabled='true' value='{{locationAddress}}' placeholder="请选择联系地址"/>
+            <image class="add-icon" src="../../image/address_2.png"></image>  
+          </view>
+        </view>
+    
+        <view class='btn_box'>
+          <button class="prev btn" bindtap='prev'>上一步</button>
+          <button class="btn" formType="submit" >完成</button>
+        </view>
+      </form> 
+    </scroll-view>
+  </swiper-item>
+</swiper>
+
+
+
+<view class="login {{is_loginBox==true?'show':'hide'}}">
+  <view>
+    <view class='gb-img' bindtap='chooseLoginHide'><image src='../../image/gb.png'></image></view>
+    <text class='login-title'>登录宠物星球</text>
+    <button class='wx-login' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">
+        <image src='../../image/wx.png' mode='widthFix'></image>
+        <text class='color3'>微信账号快速登录</text>
+    </button>
+  </view>
+</view> 

@@ -1,0 +1,82 @@
+<!--pages/newsDetail/index.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<text class='title'>{{data.article_title}}</text>
+<view class='content'>
+  <template wx:if="{{data.article_type == 10}}" is="wxParse" data="{{wxParseData:article.nodes}}" />
+  <view wx:elif="{{data.article_type == 20}}">
+    <block wx:for="{{data.article_content}}">
+      <image src='{{item}}' mode='widthFix'></image>
+    </block>
+  </view>
+  <view wx:elif="{{data.article_type == 30}}">
+      <video autoplay="true" class='video' src='{{data.article_content}}'></video>
+  </view>
+</view>
+<view class='likebox' bindtap='bindLike'>
+  <image wx:if="{{is_like}}" src='../../image/liked_h.png'></image>
+  <image wx:else src='../../image/liked.png'></image>
+  <view><text>{{likedcount}}</text>人赞过</view>
+</view>
+<!-- 评论区 -->
+<view class='comment' wx:if="{{commentList != ''}}">
+  <view class='placeholder_box'></view>
+  <view class='comment_title'><text>最新评论</text></view>
+  <view>
+    <block wx:for="{{commentList}}">
+      <view class='comment_list'>
+        <image src='{{item.customer_header_picture}}'></image>
+        <view>
+            <text class='comment_list_name'>{{item.customer_name}}</text>
+            <text class='comment_list_time'>{{item.created_at}}</text>
+            <text class='comment_list_comment'>{{item.dynamic_content}}</text>
+        </view>
+        <!-- <view class='comment_list_t'>
+          <view class='comment_list_t_l'>
+          </view>
+          <view class='comment_list_t_r'>
+            {{item.created_at}}
+          </view>
+        </view>
+        <view class='comment_list_b'>
+        {{item.dynamic_content}}
+        </view> -->
+      </view>
+    </block>
+    <view wx:if="{{nomore}}" class='nocomment'>
+      <view>
+        <image src='../../image/placeholdr.png'></image>
+        <text>评论被本汪吃掉了...</text>
+      </view>
+    </view>  
+  </view>
+  <!-- <view class='wucomment' wx:else>
+    <image src='../../image/placeholdr.png'></image>
+    <text>评论被本汪吃掉了...</text>
+  </view> -->
+</view>
+
+
+<view class='foter'>
+  <view class='foter_l'>
+    <image src='../../image/edit.png' mode="widthFix"></image>
+    <input placeholder='说点什么…' placeholder-style="color: #C4C4C4;" focus="{{name_focus}}"  confirm-type='send' adjust-position='true' value='{{commentVal}}' bindconfirm='bindSubmitComment'></input>
+  </view>
+  <view class='foter_r'>
+    <view bindtap='bindFocus'><image src='../../image/comment.png' mode="widthFix"></image></view>
+    <view data-id="{{data.id}}" bindtap='bindAttention'><image src="{{followed?'../../image/liked_h.png':'../../image/liked.png'}}" mode="widthFix"></image></view>
+    <view><button open-type="share"><image src='../../image/share.png' mode="widthFix"></image></button></view>
+  </view>
+</view> 
+
+<view class="mask {{is_mask==true?'show':'hide'}}"> </view>
+
+<view class="login {{is_loginBox==true?'show':'hide'}}">
+  <view>
+    <view class='gb-img' bindtap='chooseLoginHide'><image src='../../image/gb.png'></image></view>
+    <text class='login-title'>登录宠物星球</text>
+    <button class='wx-login' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">
+        <image src='../../image/wx.png' mode='widthFix'></image>
+        <text class='color3'>微信账号快速登录</text>
+    </button>
+  </view>
+</view> 

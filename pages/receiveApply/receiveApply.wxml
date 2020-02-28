@@ -1,0 +1,73 @@
+<view class='navigationBar'>
+ <view class="{{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav"><text>领养申请</text></view>
+ <view class="{{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav"><text>拒绝领养</text></view>
+ <view class="{{currentTab==4?'active':''}}" data-current="4" bindtap="swichNav"><text>领养失效</text></view>
+ <view class="{{currentTab==3?'active':''}}" data-current="3" bindtap="swichNav"><text>同意领养</text></view>
+</view>
+
+<view class='content'>
+
+  <block wx:for="{{dataList}}" wx:for-item="item">
+    <view class='adopter'>
+      <view class='adopter_info'>
+        <view class='name'>
+          <image src="{{item.customer.customer_header_picture}}" mode='widthFix'></image>
+          <text>{{item.customer.customer_name}}</text>
+        </view>
+        <view class='time'>{{item.created_at}}</view>
+      </view>
+                 
+      <!-- <view class='h1'>《 {{item.customer.customer_name}} 》填写了领养申请</view> -->
+
+      <view class="card" data-id='{{item.foster.id}}' catchtap="petDetail">
+        <view class="card-left"> 
+          <image src="{{item.foster.foster_title_photo}}?imageView2/1/w/254/h/226/q/75|imageslim" mode="widthFix"></image> 
+        </view> 
+        <view class="card-right"> 
+          <view class="card-details"> 
+            <text class="card-title">{{item.foster.foster_title}}</text> 
+            <view class="card-name marginT12"> <text>{{item.foster.species_name}}</text>  <image src="{{item.foster.foster_sex == 1?'../../image/nan.png':'../../image/nv.png'}} " mode="widthFix"></image></view> 
+            <text class="card-age marginT12">{{item.foster.foster_age}}</text>     
+              <image class='card-status marginT12' src="{{currentTab==1?'../../image/dendaily.png':currentTab==2?'../../image/jujuely.png':currentTab==3?'../../image/songyangcg.png':'../../image/lyshixiao.png'}}" mode="widthFix"/>
+          </view> 
+          <view class="card-address marginT12"> 
+            <image src="../../image/address.png"></image> 
+            <text>{{item.foster.foster_address}}</text> 
+          </view> 
+        </view> 
+      </view> 
+
+      <view class='statusBtn' wx:if="{{currentTab == 1}}">
+        <view class='examineBtn' data-id="{{item.id}}" data-url="{{item.customer.customer_header_picture}}" bindtap="checkInformation">
+          <image src='../../image/chakan.png' mode='widthFix'></image>
+          <text>查看资料</text>
+        </view>
+        <view class='consentBtn' data-id="{{item.id}}" bindtap="choice">
+          <image src='../../image/tyi.png' mode='widthFix'></image>
+          <text>同意领养</text>
+        </view>
+        <view class='refuseBtn' data-id="{{item.id}}" bindtap="refuse">
+          <image src='../../image/jujue.png' mode='widthFix'></image>
+          <text>拒绝领养</text>
+        </view>
+      </view>
+      <view class="statusTxt" wx:elif="{{currentTab == 2}}">已拒绝</view>
+      <view class="statusTxt" wx:elif="{{currentTab == 3}}">已同意</view>
+      <view class="statusTxt" wx:elif="{{currentTab == 4}}">已失效</view>
+    </view>
+  </block>
+
+  <view class='no_sy' wx:if="{{isData}}"> 
+    <image src='../../image/placeholdr.png'></image> 
+    <text>页面被本汪吃了...</text> 
+  </view> 
+
+  <view class="noMore {{isMore==true?'show':'hide'}}">
+    <view>
+      <image src='../../image/placeholdr.png'></image>
+      <text>数据被本汪吃掉了...</text>
+    </view>
+  </view>
+  
+</view>
+

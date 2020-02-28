@@ -1,0 +1,118 @@
+<!--pages/pagehome/index.wxml-->
+<view class="nav">
+    <view data-num="10" class="foster {{num==10?'on':''}}" bindtap="bindtabbar">星球快讯</view>
+    <view data-num="20" class="foster {{num==20?'on':''}}" bindtap="bindtabbar">汪星</view>
+    <view data-num="30" class="foster {{num==30?'on':''}}" bindtap="bindtabbar">喵星</view>
+    <view data-num="40" class="foster {{num==40?'on':''}}" bindtap="bindtabbar">其他星系</view>
+    <!-- <view data-num="2" class="sony {{num==2?'on':''}}" bindtap="bindtapbaohyfa">动保立法</view> -->
+</view>
+<view style='padding-top: 98rpx; box-sizing: border-box'>
+
+<!-- <swiper class="swiper-block"  previous-margin="90rpx" next-margin="90rpx" bindchange="swiperChange" current="0" indicator-dots="true" indicator-color="#444444" indicator-active-color="#FFDD1D" circular="true" >
+  <block wx:for="{{slideimage}}" wx:index="{{index}}">
+    <swiper-item data-id="{{item.id}}" bindtap="newsDetail" class="swiper-item">
+      <image src="{{item.cover_image}}?imageView2/1/w/330/h/180/q/100|imageslim" class="slide-image {{swiperIndex == index ? 'active' : ''}}"></image>
+      <text>{{item.article_title}}</text>
+    </swiper-item>
+  </block>
+</swiper> -->
+<swiper indicator-dots="true" indicator-color="#444444" indicator-color="#EFEFEF" indicator-active-color="#FFDD1D" circular="true" >
+  <block wx:for="{{slideimage}}">
+    <swiper-item data-id="{{item.id}}" bindtap="newsDetail">
+      <image src="{{item.cover_image}}?imageView2/1/w/330/h/180/q/100|imageslim" class="slide-image"/>
+      <text>{{item.article_title}}</text>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class='content_list'>
+  <block wx:for="{{dataList}}">
+    <!-- <view class='gray'></view> -->
+    
+     
+    <view wx:if="{{item.article_type != 30}}">
+     <view wx:if="{{item.cover_image.length <3 && item.cover_image.length >0}}" data-id="{{item.id}}" class='c_dan_list c_list_b' bindtap="newsDetail">
+        <view class='c_dan_list_l'>
+          <text>{{item.article_title}} </text>
+          <view class='author_info'>
+              <image src='../../image/zan.png'></image>
+              <text class='name'>{{item.liked_count}}</text> 
+              <text class='time'>{{item.created_at}}</text>
+          </view>
+        </view>
+        <view class='c_dan_list_r'>
+          <image src='{{item.cover_image[0]}}?imageView2/1/w/240/h/180/q/100|imageslim'></image>
+        </view>
+      </view>
+
+      <view wx:elif="{{item.cover_image.length >= 3}}" data-id="{{item.id}}" class='c_duo_list c_list_b' bindtap="newsDetail">
+        <text class='length3'>{{item.article_title}}</text>
+        <view class='c_duo_list_img'>
+          <block wx:for="{{item.cover_image}}" wx:for-item="item1">
+            <image src='{{item1}}?imageView2/1/w/216/h/150/q/100|imageslim'></image>
+          </block>
+        </view>
+        <view class='author_info'>
+              <image src='../../image/zan.png'></image>
+              <text class='name'>{{item.liked_count}}</text> 
+              <text class='time'>{{item.created_at}}</text>
+          </view>
+      </view>
+
+      <view wx:elif="{{item.cover_image.length == 0}}" data-id="{{item.id}}" class='c_duo_list c_list_b' bindtap="newsDetail">
+        <text class="length0">{{item.article_title}}</text>
+        <view class='c_duo_list_img'>
+          <block wx:for="{{item.cover_image}}" wx:for-item="item1">
+            <image src='{{item1}}?imageView2/1/w/216/h/150/q/100|imageslim'></image>
+          </block>
+        </view>
+        <view class='author_info'>
+              <image src='../../image/zan.png'></image>
+              <text class='name'>{{item.liked_count}}</text> 
+              <text class='time'>{{item.created_at}}</text>
+        </view>
+      </view>
+    </view>
+    <view  wx:elif="{{item.article_type == 30}}">
+    <!-- <view class='gray'></view> -->
+
+      <view data-id="{{item.id}}" class='c_duo_list c_list_b' bindtap="newsDetail">
+        <text class="length0">{{item.article_title}}</text>
+        <view class='c_duo_list_video'>
+          <image src='{{item.cover_image[0]}}'></image>
+          <view><image src='../../image/bofang.png'></image></view>
+        </view>
+        <view class='author_info'>
+              <image src='../../image/zan.png'></image>
+              <text class='name'>{{item.liked_count}}</text> 
+              <text class='time'>{{item.created_at}}</text>
+        </view>
+      </view>
+    </view>
+    
+  </block>
+</view>
+
+<view class="noMore {{is_more==true?'show':'hide'}}">
+  <view>
+    <image src='../../image/placeholdr.png'></image>
+    <text>数据被本汪吃掉了...</text>
+  </view>
+</view>
+
+<view class='no_sy' wx:if="{{is_data}}">
+  <image src='../../image/placeholdr.png'></image>
+  <text>页面被本汪吃了...</text>
+</view>
+
+<view class="login {{is_loginBox==true?'show':'hide'}}">
+  <view>
+    <view class='gb-img' bindtap='chooseLoginHide'><image src='../../image/gb.png'></image></view>
+    <text class='login-title'>登录宠物星球</text>
+    <button class='wx-login' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">
+        <image src='../../image/wx.png' mode='widthFix'></image>
+        <text class='color3'>微信账号快速登录</text>
+    </button>
+  </view>
+</view> 
+</view>

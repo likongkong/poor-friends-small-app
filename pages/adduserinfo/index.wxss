@@ -1,0 +1,19 @@
+.head{background: #FFDD1D;padding: 40rpx 46rpx 70rpx 46rpx;}
+.head text{display: block;font-size: 52rpx;}
+.content{padding-bottom: 60rpx;}
+.phcolor{color: #E4E4E4;}
+.infoBox{width: 90%;border-bottom: 1px solid #EEEEEE;margin-left: 5%;padding-top: 40rpx;}
+.infoBox text{font-size: 28rpx;}
+.infoBox input{height: 108rpx;font-size: 32rpx;}
+.agreement{width: 90%;margin-left: 5%;padding-top: 45rpx;padding-bottom: 70rpx;}
+/* checkbox{border: 1px solid #71D1FF;border-radius: 4rpx;width: 20rpx;height: 20rpx;} */
+.agreement{font-size: 24rpx;color: #6CCFFF;line-height: 24rpx;}
+checkbox .wx-checkbox-input{
+   border-radius: 4rpx;
+   width: 20rpx;
+   height: 20rpx;
+   border: 1px solid #71D1FF;
+   margin-top: -8rpx;
+   padding: 4rpx;
+}
+button{border-radius: 8rpx; width: 360rpx;height: 76rpx;text-align: center;line-height: 78rpx;font-size: 36rpx;background: #FFDD1D;}

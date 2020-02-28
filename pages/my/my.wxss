@@ -1,0 +1,357 @@
+page{
+  background: #f5f5f5;
+  padding-bottom: 46rpx;
+  box-sizing: border-box;
+}
+/* .head {
+  width: 100%;
+  height: 154rpx;
+  background: #ffdd1d;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.head-portrait {
+  width: 128rpx;
+  height: 154rpx;
+  float: left;
+}
+
+.head-portrait view {
+  width: 86rpx;
+  height: 86rpx;
+  background: #fff;
+  border-radius: 86rpx;
+  float: right;
+  margin-top: 34rpx;
+}
+
+.head-portrait view image {
+  width: 86rpx;
+  border-radius: 86rpx;
+  height: 86rpx;
+}
+
+.information {
+  width: 622rpx;
+  height: 154rpx;
+  float: right;
+  padding-left: 18rpx;
+  box-sizing: border-box;
+}
+
+.information text {
+  display: block;
+  margin-top: 53rpx;
+  font-size: 36rpx;
+}
+
+.name {
+  font-size: 28rpx;
+  color: black;
+  display: block;
+  line-height: 40rpx;
+  margin-top: 62rpx;
+}
+
+.weixin {
+  font-size: 20rpx;
+  color: #fefefe;
+  display: block;
+  line-height: 28rpx;
+  margin-top: 14rpx;
+}
+
+.nav {
+  width: 100%;
+  height: 98rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 152rpx;
+  left: 0;
+  z-index: 10;
+  background: #ffdd1d;
+}
+
+.nav view {
+  width: 25%;
+  height: 90rpx;
+  float: left;
+  margin-top: 8rpx;
+  text-align: center;
+  line-height: 90rpx;
+  font-size: 28rpx;
+  color: #978210;
+}
+
+.nav .on {
+  color: #000;
+  position: relative;
+}
+
+.nav .on::before {
+  content: "";
+  width: 120rpx;
+  height: 4rpx;
+  display: block;
+  background: #000;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -60rpx;
+}
+
+.nav view text {
+  display: block;
+  width: 2rpx;
+  height: 90rpx;
+  background: #eaeaea;
+  position: absolute;
+}
+
+.nav view text:first-child {
+  top: 0;
+  left: 0;
+}
+
+.nav view text:last-child {
+  top: 0;
+  right: 0;
+}
+
+.content {
+  width: 100%;
+  margin-top: 252rpx;
+}
+
+.content-foster, .content-sony, .content-focus {
+  padding-top: 30rpx;
+  box-sizing: border-box;
+}
+
+.mylogin {
+  width: 100%;
+  height: 92rpx;
+  margin-top: 31rpx;
+  text-align: left;
+  background: transparent;
+  color: #000;
+}
+
+.mylogin::after {
+  border: none;
+}
+
+.code-box {
+  padding-top:30rpx;
+  box-sizing:border-box;
+}
+
+.code-box text {
+  display: block;
+  text-align: center;
+}
+.hz_card {
+  width: 698rpx;
+  box-shadow: 0rpx 0rpx 15rpx 0rpx #cecece;
+  margin: 0 auto;
+  margin-bottom: 30rpx;
+  position: relative;
+  padding: 40rpx 0;
+}
+.hz_card text:last-child{
+  margin-top: 35rpx;
+} */
+/* .code>text{
+  text-align: center;
+  display: block;
+  color: #000000;
+  font-size: 16px;
+}
+.code>text:nth-of-type(1){
+  font-weight: bold;
+  margin-top: 80rpx;
+  margin-bottom: 40rpx;
+}
+.code>text:nth-of-type(2){
+  margin-bottom: 40rpx;
+}
+.code-box{
+  width: 510rpx; 
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.code-box>view{
+  width: 200rpx;
+  margin-top: 80rpx;
+}
+.code-box>view>text{
+  font-size: 32rpx;
+  color: #000000;  
+  margin-bottom: 20rpx;
+  display: block;
+  font-weight: bold; 
+}
+.code-box image{
+  width: 200rpx;
+} */
+
+.btnlogin{
+  width: 50%;
+  margin: 0 auto;
+}
+.borderB::after{
+  content: '';
+  width: 100%;
+  height: 2rpx;
+  background: #EEEBEB;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.bottom28{
+  margin-bottom: 16rpx;
+}
+.head{
+  width: 100%;
+  height: 260rpx;
+  position: relative;
+  background: #ffdd1d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.head-b{
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 60rpx;
+  left: 0;
+}
+.head-b .portrait{
+  width: 184rpx;
+  display: flex;
+  justify-content: center;
+}
+.head-b .portrait view{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 120rpx;
+  overflow: hidden;
+}
+.head-b .portrait view image{
+  width: 100%;
+  height: auto;
+}
+.head-b .name{  
+  width: 566rpx;
+  padding-right: 132rpx;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.head-b .name image{
+  width: 20rpx;
+  height: auto;
+  position: absolute;
+  top: 50rpx;
+  right: 40rpx;
+}
+.head-b .name text{  
+  display: block;
+}
+.head-b .name .username{  
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #000000;
+  display: block;
+}
+.head-b .name .introduction{
+  width: 100%;
+  font-size: 24rpx;
+  color: #78714B;  
+  line-height: 34rpx;
+  margin-top: 20rpx;
+  display: block;
+}
+
+.chunk{
+  width: 100%;
+  height: 128rpx;
+  background: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 0 0 40rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.chunk image{
+  width: 48rpx;
+  height: auto;
+}
+.chunk .text{
+  width:100%;
+  height: 128rpx;
+  display: block;
+  line-height: 128rpx;
+  font-size: 32rpx;
+  color: #1F1D1D;
+  margin-left: 40rpx;
+  position: relative;
+}
+.chunk button{
+  width: 100%;
+  height: 128rpx;
+  line-height: 128rpx;
+  font-size: 32rpx;
+  color: #1F1D1D;
+  background: transparent;
+  text-align: left
+}
+.chunk .news{
+  width: 18rpx;
+  height: 18rpx;
+  background: #FF4040;
+  border-radius: 18rpx;
+  position: absolute;
+  top: 24rpx;
+  right: 22rpx;
+}
+
+.wxcode{
+  margin-top: 40rpx;
+  /* display: flex;
+  justify-content: center; */
+}
+.wxcode image{
+  width: 180rpx;
+  height: auto;
+  display: block;
+  margin: 0 auto 50rpx auto;
+}
+.wxcode view{
+  width: 284rpx;
+  height: 4rpx;
+  background: #9D9292;
+  margin: 0 auto;
+  position: relative;
+}
+.wxcode text{
+  /* position: absolute;
+  top: -14rpx;
+  left: 50%;
+  margin-left: -108rpx; */
+  width: 100%;
+  text-align: center;
+  font-size: 22rpx;
+  color: #6D6D6D;
+  display: block;
+  /* padding: 0 20rpx;
+  background: #f5f5f5; */
+}

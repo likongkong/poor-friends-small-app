@@ -1,0 +1,140 @@
+<view class='head'>
+  <view class='head-b' bindtap="toPage" data-url='myCenter/myCenter' wx:if="{{hasUserInfo}}">
+    <view class='portrait'>
+      <view><image src='{{userInfo.customer_header_picture}}' mode='widthFix'></image></view>
+    </view>
+    <view class='name'>
+      <view>
+        <text class='username'>{{userInfo.customer_nickname!=null?userInfo.customer_nickname:userInfo.customer_name}}</text>
+        <text class='introduction' wx:if="{{userInfo.customer_desc!=null}}">{{userInfo.customer_desc}}</text>
+      </view>
+      <image src='../../image/arrows.png' mode='widthFix'></image>
+    </view>
+  </view>
+  <view class="btnlogin" wx:else>
+    <button class='mylogin' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">请登录</button>
+  </view>
+</view>
+
+<view class='adoptApply chunk bottom28' data-url="receiveApply/receiveApply" bindtap="toPage">
+  <image src='../../image/xinfeng.png' mode='widthFix'></image>
+  <text class='text'>我收到的领养申请</text>
+  <!-- <text class='news'></text> -->
+</view>
+
+<!-- <view class='message chunk' data-url="myLike/myLike" bindtap="toPage">
+  <image src='../../image/message.png' mode='widthFix'></image>
+  <text class='text borderB'>我的消息</text>
+</view> -->
+<view class='for_adoption chunk' data-url="myCreate/myCreate" bindtap="toPage">
+  <image src='../../image/for_adoption.png' mode='widthFix'></image>
+  <text class='text borderB'>我的送养</text>
+</view>
+<view class='adopt chunk' data-url="myAdoption/myAdoption" bindtap="toPage">
+  <image src='../../image/adopt.png' mode='widthFix'></image>
+  <text class='text borderB'>我的领养</text>
+</view>
+<view class='attention chunk' data-url="myLike/myLike" bindtap="toPage">
+  <image src='../../image/attention.png' mode='widthFix'></image>
+  <text class='text borderB'>我的关注</text>
+</view>
+<view class='contact_us chunk bottom28' bindtap='toPage' data-url='contactUs/contactUs'>
+  <image src='../../image/contact_us.png' mode='widthFix'></image>
+  <text class='text'>联系我们</text>
+</view>
+
+<view class='fenxiang chunk bottom28'>
+  <image src='../../image/fenxiang.png' mode='widthFix'></image>
+  <!-- <text class='text'>把宠物星球推荐给好友</text> -->
+  <button open-type="share">把宠物星球推荐给好友</button>
+</view>
+
+<!-- <view class='wxcode'> -->
+  <!-- <image src='../../image/qqcode.png' mode='widthFix'></image> -->
+  <!-- <view> -->
+    <!-- <text>宠物星球与你相伴</text> -->
+  <!-- </view> -->
+<!-- </view> -->
+
+
+<!-- <view class="wrap">
+  <view class="head">
+    <view class="head-portrait">
+      <view>
+        <image src="{{userInfo.customer_header_picture}}"></image>
+      </view>
+    </view>
+    <view class="information" wx:if="{{hasUserInfo}}">
+      <text class="name">{{userInfo.customer_name}}</text>
+    </view>
+    <view class="information" wx:else>
+      <button class='mylogin' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">未登录</button>
+    </view>
+  </view>
+  <view class="nav">
+    <view data-num="1" class="foster {{num==1?'on':''}}" bindtap="tapadoptList">我的领养</view>
+    <view data-num="2" class="sony {{num==2?'on':''}}" bindtap="tapadoptionList">我的送养</view>
+    <view data-num="3" class="focus {{num==3?'on':''}}" bindtap="tapfocusList">我的关注</view>
+    <view data-num="3" class="code {{num==4?'on':''}}" bindtap="tapcode">意见反馈</view>
+  </view>
+  <view class="content">
+    <view wx:if="{{num!=4}}" class="content-foster">
+      <block wx:for="{{dataList}}" wx:for-item="item">
+        <view class="card" data-id='{{item.id}}' bindtap="fosterDetail">
+          <view class='card-box'>
+            <view class="card-left">
+              <view class="card-photo">
+                <image src="{{item.foster_title_photo}}?imageView2/1/w/220/h/154/q/75|imageslim"></image>
+              </view>
+            </view>
+            <view class="card-right">
+              <view class="card-details">
+                <text class="card-title">{{item.foster_title}}</text>
+                <view>
+                  <text class="card-txt">{{item.species_name}}</text>
+                </view>
+                <view>
+                  <image wx:if="{{item.foster_sex == 1}}" class='card-txt-icon' src="../../image/nan.png"></image>
+                  <image wx:else class='card-txt-icon' src="../../image/nv.png"></image>
+                  <text class="card-txt">{{item.foster_age}}</text> </view>
+              </view>
+            </view>
+          </view>
+          <view class="card-address">
+            <image src="../../image/address.png"></image>
+            <text>地址：{{item.foster_address}}</text>
+          </view>
+        </view>
+      </block>
+      <view class='no_sy' wx:if="{{is_sy}}">
+        <image src='../../image/placeholdr.png'></image>
+        <text>页面被本汪吃了...</text>
+      </view>
+    </view>
+    <view wx:else class='code code-box'>
+    
+      <view class='hz_card'>
+        <text>微信：K00000_K</text>
+        <text>合作：1773754111@qq.com</text>
+      </view>
+    </view>
+  </view>
+</view> -->
+<!-- <view class="noMore {{is_more==true?'show':'hide'}}">
+  <view>
+    <image src='../../image/placeholdr.png'></image>
+    <text>数据被本汪吃掉了...</text>
+  </view>
+</view> -->
+<view class="login {{is_loginBox==true?'show':'hide'}}">
+  <view>
+    <view class='gb-img' bindtap='chooseLoginHide'>
+      <image src='../../image/gb.png'></image>
+    </view>
+    <text class='login-title'>登录宠物星球</text>
+    <button class='wx-login' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">
+      <image src='../../image/wx.png' mode='widthFix'></image>
+      <text class='color3'>微信账号快速登录</text>
+    </button>
+  </view>
+</view>

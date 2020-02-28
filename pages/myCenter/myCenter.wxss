@@ -1,0 +1,192 @@
+page{
+  padding-bottom: 160rpx;
+  box-sizing: border-box;
+}
+.active text{
+  background: #FFDD1D;
+  border: none
+}
+
+.gray{
+ width: 100%;
+ height: 20rpx; 
+ background: #fafafa;
+ margin-top: 20rpx;
+}
+
+.head{
+  width: 100%;
+  padding: 40rpx 0 60rpx 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+.head image{
+  width:  170rpx;
+  height: auto;
+  border-radius: 170rpx;
+}
+
+.my_info{
+  width: 100%;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+}
+.my_info .title{
+  font-size: 32rpx;
+  color: #000000;
+  font-weight: bold;
+}
+
+.sex{
+  display: flex;
+  align-items: center;
+  margin-top: 40rpx;
+}
+.sex_title{
+  width: 13%;
+  font-size: 28rpx;
+  color: #000;
+  /* font-weight: bold; */
+}
+.sex_label{
+  width: 90%;
+}
+.sex_label>view{
+  margin-right: 18rpx;
+  display: inline-block;
+}
+.sex_label text{
+  height: 52rpx;
+  border-radius: 26rpx;
+  border: 1px solid #F4F4F4;
+  display: inline-block;
+  font-size: 24rpx;
+  color: #636363;
+  padding: 0 34rpx;
+  box-sizing: border-box;
+  line-height: 52rpx;
+}
+.sex_label text:last-child{
+  margin-right: 0;
+}
+
+.common{
+  padding: 40rpx 0 22rpx 0;
+  box-sizing: border-box;
+  position: relative;
+}
+.common text{
+  font-size: 28rpx;
+  color: #000;
+  /* font-weight: bold; */
+  margin-bottom: 24rpx;
+  display: inline-block;
+}
+.common input{
+  width: 100%;
+  font-size: 24rpx;
+  color: #666;
+}
+.common::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width:100%;
+  height: 1px; 
+  transform:scaleY(0.5);
+  background: #EAEAEA;
+}
+.introduction::before{
+  display: none
+}
+.introduction textarea{
+  width: 100%;
+  height: 160rpx;
+  font-size: 24rpx;
+  color: #666;
+  border: 2rpx solid #F4F4F4;
+  border-radius: 12rpx;
+  padding: 10rpx 18rpx;
+  box-sizing: border-box;
+}
+
+.authentication{
+  width: 100%;
+  padding: 40rpx 40rpx 0 40rpx;
+  box-sizing: border-box;
+}
+.authentication .title{
+  height: 44rpx;
+  font-size: 32rpx;
+  color: #000000;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+.authentication .title text{
+  font-size: 24rpx;
+  color: #BEBEBE;
+  font-weight: 200;
+}
+
+.identity{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40rpx 0 0 0;
+  box-sizing: border-box;
+}
+.identity>view{
+  width: 308rpx;
+}
+
+.identity>view text{
+  font-size: 28rpx;
+  color: #000;
+  /* font-weight: bold; */
+  margin-bottom: 24rpx;
+  display: inline-block;
+}
+.identity>view>view{
+  width: 100%;
+  height: 200rpx;
+  border: 2rpx dashed #E3E3E3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.face_pic , .back_pic{
+  border: none !important;
+}
+.face_pic image{
+  width: 100%;
+  height: auto;
+}
+.back_pic image{
+  width: 100%;
+  height: auto;
+}
+
+
+.add-icon{
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.submit{
+  width: 100%;
+  height: 120rpx;
+  background: #FFDD1D;
+  box-shadow: 0 -1px 4px 0 rgba(167,161,161,0.38);
+  border-radius: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-size:32rpx;
+  color: #000000;
+  line-height: 120rpx;
+  z-index: 10
+}

@@ -1,0 +1,150 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.5.0",
+	"appid": "wxc42334dfe0acfa72",
+	"projectname": "%E5%AE%A0%E7%89%A9%E6%98%9F%E7%90%83",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/my/my",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "送养",
+					"pathName": "pages/create/create",
+					"query": "id=10",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "送样详情",
+					"pathName": "pages/noadopt/noadopt",
+					"query": "id=29",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "活动",
+					"pathName": "pages/activity/activity",
+					"query": ""
+				},
+				{
+					"id": 7,
+					"name": "发布送养",
+					"pathName": "pages/createDetail/createDetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/index/index",
+					"query": "id=17"
+				},
+				{
+					"id": -1,
+					"name": "趣闻",
+					"pathName": "pages/pagehome/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/myCenter/myCenter",
+					"query": ""
+				},
+				{
+					"id": 8,
+					"name": "趣闻详情",
+					"pathName": "pages/newsDetail/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我收到的领养申请",
+					"pathName": "pages/receiveApply/receiveApply",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的送养",
+					"pathName": "pages/myCreate/myCreate",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的领养列表",
+					"pathName": "pages/myAdoption/myAdoption",
+					"query": "id=29",
+					"scene": null
+				},
+				{
+					"id": 12,
+					"name": "新首页",
+					"pathName": "pages/new-index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "旧首页",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "养宠知识",
+					"pathName": "pages/petKnowledge/index",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

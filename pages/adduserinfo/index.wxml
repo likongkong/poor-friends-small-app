@@ -1,0 +1,49 @@
+<view class='head'>
+  <text>一起为公益事业做好准备</text>
+  <text>领养代替购买</text>
+  <text>与你的它一起建立一个家</text>
+</view>
+<view class='content'>
+  <form bindsubmit="formSubmit" report-submit='true'>
+  <view class='infoBox'>
+    <text>请填写您的姓名</text>
+    <input type="text" name='name' placeholder-class='phcolor' placeholder='请输入'/>
+  </view>
+  <picker bindchange="bindPickerChangeSex" range="{{sexArray}}">
+    <view class="infoBox">
+      <text>请选择您的性别</text>
+      <input type="text" name='sex' placeholder-style='color: #E4E4E4;font-size: 32rpx;' placeholder="请选择" value='{{sexArrayTxt}}'  disabled='true'/>
+    </view>
+  </picker>
+  <view class='infoBox'>
+    <text>请填写您的身份证号</text>
+    <input type="text" name='idcard' placeholder-class='phcolor' placeholder='请输入'/>
+  </view>
+  <view class='infoBox'>
+    <text>请填写您的手机号</text>
+    <input type="text" name='phone' placeholder-class='phcolor' placeholder='请输入'/>
+  </view>
+  <view class='infoBox'>
+    <text>请输入您现在的居住地址</text>
+    <input type="text" name='address' placeholder-class='phcolor' placeholder='请输入'/>
+  </view>
+  <view class='infoBox'>
+    <text>请填写您现在单位名称</text>
+    <input type="text" name='work' placeholder-class='phcolor' placeholder='请输入'/>
+  </view>
+  <picker bindchange="bindPickerChangeType" range="{{typeArray}}">
+    <view class="infoBox">
+      <text>请选择您现在居住环境</text>
+      <input type="text" name='housetype' placeholder-style='color: #E4E4E4;font-size: 32rpx;' placeholder="请选择" value='{{typeArrayTxt}}'  disabled='true'/>
+    </view>
+  </picker>
+  <view class="agreement">
+    <checkbox-group bindchange="checkboxChange">
+      <label>
+        <checkbox checked='true' color='#6CCFFF'/>同意领养协议且服务人员实地拜访调查
+      </label>
+    </checkbox-group>
+  </view>
+  <button formType="submit">完成</button>
+  </form>
+</view>

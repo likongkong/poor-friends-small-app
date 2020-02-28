@@ -1,0 +1,37 @@
+<view class='head'>
+  <image src='{{url}}' /><text>{{customer_name}}</text>
+</view>
+<view class='content'>
+  <view class='infobox'>
+    <text>姓名</text>
+    <text>{{customer_real_name}}</text>
+  </view>
+  <view class='infobox'>
+    <text>性别</text>
+    <text>{{customer_sex}}</text>
+  </view>
+  <view class='infobox'>
+    <text>身份证</text>
+    <text>{{customer_idcard_number}}</text>
+  </view>
+  <view class='infobox'>
+    <text>手机号</text>
+    <text>{{customer_phone}}</text>
+  </view>
+  <view class='infobox'>
+    <text>居住地址</text>
+    <text>{{customer_reside_address}}</text>
+  </view>
+  <view class='infobox' wx:if="{{customer_company != ''}}">
+    <text>单位名称</text>
+    <text>{{customer_company}}</text>
+  </view>
+  <view class='infobox' wx:if="{{live}}">
+    <text>居住环境</text>
+    <text>{{live}}</text>
+  </view>
+</view>
+<view class='foter' wx:if="{{is_selected == 0 }}">
+  <button bindtap="choice" data-id='{{id}}'>同意</button>
+  <button style="background:#F5736A" data-id='{{id}}' bindtap='refuse'>拒绝</button>
+</view>

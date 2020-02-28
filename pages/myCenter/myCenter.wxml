@@ -1,0 +1,81 @@
+<form class='form' bindsubmit="formSubmit">
+  <view class='head'>
+    <image src='{{userInfo.customer_header_picture}}' mode='widthFix'></image>
+  </view>
+
+  <view class='my_info'>
+    <text class='title'>个人信息</text>
+    <view class='sex'>
+      <view class='sex_title'>性别</view>
+      <radio-group class="sex_label"  bindchange="radioChange">
+        <view wx:for="{{sexRadioItems}}">
+          <label class="label {{item.checked ?'active': ''}}">
+            <radio id="{{item.id}}" hidden value="{{item.id}}" checked="{{item.checked}}"></radio>
+            <text>{{item.value}}</text>
+          </label>
+        </view>
+      </radio-group>
+    </view>
+
+    <view class='wxname common'>
+      <text>昵称</text>
+      <input type='text' name="nickname" placeholder-style='color:#d5d5d5' placeholder='请输入昵称' value="{{userInfo.customer_nickname}}"></input>
+    </view>
+    <picker mode="date" value="{{date}}" start="1900-01-01" end="" bindchange="bindDateChange">
+      <view class='birthday common'>
+        <text>生日</text>
+        <input type='text' name='birthday' disabled='true' placeholder-style='color:#d5d5d5' placeholder='请选择' value='{{date}}'></input>
+      </view>
+    </picker>
+    <!-- <view class="address common">
+      <view bindtap="chooseLocation">
+        <text>地址</text>
+        <input type="text" name='address' placeholder-style='color:#d5d5d5' disabled='true' value='{{locationAddress}}' placeholder="请选择"/>
+      </view>
+    </view> -->
+    <view class='introduction common'>
+      <text>简介</text>
+      <textarea name="introduce" placeholder-style='color:#d5d5d5' placeholder='请输入描述' value="{{userInfo.customer_desc}}"></textarea>
+    </view>
+    
+  </view>
+
+  <view class='gray'></view>
+
+  <view class='authentication'>
+    <view class='title'>实名认证 <text>（选填）</text> </view>
+    <view class='identity'>
+      <view class='positive'>
+        <text>身份证正面</text>
+        <view data-side="face"  bindtap="chooseWxImage" wx:if="{{faceData==null}}">
+          <image class="add-icon" src="../../image/add-plus.png"></image>  
+        </view>
+        <view class="face_pic" wx:else>
+          <image src="{{faceImg}}?imageView2/1/w/154/h/100/q/100|imageslim" mode='widthFix'></image>  
+        </view>
+      </view>
+      <view class='contrary'>
+        <text>身份证反面</text>
+        <view data-side="back" bindtap="chooseWxImage" wx:if="{{backData==null}}">
+            <image class="add-icon" src="../../image/add-plus.png"></image>  
+        </view>
+        <view class="back_pic" wx:else>
+          <image src="{{backImg}}?imageView2/1/w/154/h/100/q/100|imageslim" mode='widthFix'></image>  
+        </view>
+      </view>
+    </view>
+    <view class='name common'>
+      <text>姓名</text>
+      <input type='text' disabled="{{userInfo.customerRealAuth!=''?'true':''}}" placeholder-style='color:#d5d5d5' placeholder='请输入姓名' value="{{faceData.name}}"></input>
+    </view>
+    <view class='name common'>
+      <text>身份证</text>
+      <input type='text' disabled="{{userInfo.customerRealAuth!=''?'true':''}}" placeholder-style='color:#d5d5d5' maxlength='18' placeholder='请输入18位身份证号' value="{{faceData.num}}"></input>
+    </view>
+
+  </view>
+
+  <button class='submit' formType="submit">
+    完成
+  </button>
+</form>
