@@ -20,11 +20,11 @@
     <view style="margin-bottom: 34rpx;">
       <view class="nav_menu">
         <image src="../../image/dog.png" mode='widthFix'></image> 
-        <text>无偿领养1</text>
+        <text>无偿领养</text>
       </view>
       <view class="nav_menu">
         <image src="../../image/dog.png" mode='widthFix'></image> 
-        <text>有偿领养2</text>
+        <text>有偿领养</text>
       </view>
       <view class="nav_menu">
         <image src="../../image/dog.png" mode='widthFix'></image> 
