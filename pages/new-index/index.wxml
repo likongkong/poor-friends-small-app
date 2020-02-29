@@ -124,7 +124,19 @@
       </view> 
     </view>
     <view wx:else class="pet_news">
-    
+      <view class='c_dan_list c_list_b'>
+        <view class='c_dan_list_l'>
+          <text>测试测试测试测试测试</text>
+          <view class='author_info'>
+              <!-- <image src='../../image/zan.png'></image> -->
+              <text class='name'>小动物保护协会</text> 
+              <text class='time'>2018.09.14</text>
+          </view>
+        </view>
+        <view class='c_dan_list_r'>
+          <image src='http://test-img.poorfriends.com/20180918%2F5ba11056722a35.58215595?imageView2/1/w/240/h/180/q/100|imageslim'></image>
+        </view>
+      </view>
     </view>
   </view>
 

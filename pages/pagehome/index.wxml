@@ -31,6 +31,7 @@
     
      
     <view wx:if="{{item.article_type != 30}}">
+    
      <view wx:if="{{item.cover_image.length <3 && item.cover_image.length >0}}" data-id="{{item.id}}" class='c_dan_list c_list_b' bindtap="newsDetail">
         <view class='c_dan_list_l'>
           <text>{{item.article_title}} </text>
