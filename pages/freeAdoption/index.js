@@ -6,21 +6,26 @@ var page = 1;
 Page({
   //事件处理函数
   data: {
-    imgUrls: ["http://img.poorfriends.com/tmp%2Fwxc42334dfe0acfa72.o6zAJswifTs5kKtTjj-xfk-re0PI.QghGWKqEgVfMef000fd9fcfb928c9f6c4c0c320f1c18.jpg", "http://img.poorfriends.com/tmp%2Fwxc42334dfe0acfa72.o6zAJswifTs5kKtTjj-xfk-re0PI.QghGWKqEgVfMef000fd9fcfb928c9f6c4c0c320f1c18.jpg","http://img.poorfriends.com/tmp%2Fwxc42334dfe0acfa72.o6zAJswifTs5kKtTjj-xfk-re0PI.QghGWKqEgVfMef000fd9fcfb928c9f6c4c0c320f1c18.jpg"
-    ],
-    tabnum: 0
+    pull:true,
+    family_id: '',
+    dataAll : [],
+    is_sy:false,
+    url: 'foster/recommend-list',
+    is_more:false,
+    is_loginBox:false,
+    num:0
   },
   onShow: function () {
     //默认城市
-    if (app.globalData.cityId == '') {
+    if (app.globalData.cityId == ''){
       this.setData({
         loading: true,
         cityName: '全国',
         cityId: ''
       })
       let obj = { area_city_id: '', family_id: '', limit: 20, page: 1 };
-      this.list('foster/recommend-list', obj);
-    } else {
+      this.list('foster/recommend-list', obj); 
+    }else{
       //选中的城市
       this.setData({
         loading: true,
@@ -28,18 +33,8 @@ Page({
         cityId: app.globalData.cityId
       })
       let obj = { area_city_id: app.globalData.cityId, family_id: '', limit: 20, page: 1 };
-      this.list('foster/recommend-list', obj);
+      this.list('foster/recommend-list', obj); 
     }
-  },
-  btnTab(e){
-    this.setData({tabnum: e.currentTarget.dataset.tabnum})
-  },
-  //轮播滑动时，获取当前的轮播id
-  swiperChange(e) {
-    const that = this;
-    that.setData({
-      swiperIndex: e.detail.current,
-    })
   },
   //分享
   onShareAppMessage: function (res) {
@@ -50,15 +45,15 @@ Page({
     }
   },
   //上拉加载
-  onReachBottom: function () {
-    if (this.data.pull == true) {
+  onReachBottom:function(){
+    if (this.data.pull == true){
       wx.showLoading({
         title: '加载中',
       })
       var data = {};
-      data.area_city_id = app.globalData.cityId,
+        data.area_city_id = app.globalData.cityId,
         data.family_id = this.data.family_id;
-      data.limit = 20,
+        data.limit = 20,
         data.page = ++page;
       request.requestData(this.data.url, "GET", data, (res) => {
         wx.hideLoading()
@@ -83,7 +78,7 @@ Page({
       url: '../city/city?name=' + cityName
     })
   },
-  goSearch: function (e) {
+  goSearch:function(e){
     var cityId = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: '../search/search?id=' + cityId
@@ -91,18 +86,18 @@ Page({
   },
   //全部
   recommendList: function (e) {
-    this.setData({ num: 0 })
+    this.setData({num: 0})
     var cityId = app.globalData.cityId
     let obj = { area_city_id: cityId, limit: 20, page: 1 };
-    this.list('foster/recommend-list', obj);
+    this.list('foster/recommend-list', obj); 
   },
   //汪星人
-  dogList: function (e) {
+  dogList:function(e){
     this.setData({ num: 1 })
     this.data.family_id = 10;
     let cityId = app.globalData.cityId
     let obj = { area_city_id: cityId, family_id: 10, limit: 20, page: 1 };
-    this.list('foster/family-list', obj);
+    this.list('foster/family-list', obj); 
   },
   //喵星人
   catList: function (e) {
@@ -110,15 +105,15 @@ Page({
     this.data.family_id = 20;
     let cityId = app.globalData.cityId
     let obj = { area_city_id: cityId, family_id: 20, limit: 20, page: 1 };
-    this.list('foster/family-list', obj);
+    this.list('foster/family-list', obj); 
   },
   //其他
   otherList: function (e) {
-    this.setData({ num: 3 })
+    this.setData({ num: 3})
     this.data.family_id = 30;
     let cityId = app.globalData.cityId
     let obj = { area_city_id: cityId, family_id: 30, limit: 20, page: 1 };
-    this.list('foster/family-list', obj);
+    this.list('foster/family-list', obj); 
   },
 
 
@@ -127,14 +122,14 @@ Page({
       title: '加载中',
     })
     page = 1;
-    this.setData({ is_more: false, url: url, pull: true, dataAll: [] })
+    this.setData({ is_more: false, url: url, pull: true, dataAll:[]})
     request.requestData(url, "GET", data, (res) => {
       wx.hideLoading()
       let dataLen = res.data.data.length;
       if (dataLen == 0) {
         this.setData({ is_sy: true })
       } else {
-        this.setData({ is_sy: false })
+        this.setData({ is_sy: false })                                                                                            
       }
       for (var i = 0; i < dataLen; i++) {
         this.data.dataAll.push(res.data.data[i])
@@ -142,16 +137,16 @@ Page({
       this.setData({ dataList: this.data.dataAll })
     }, null, null)
   },
-
+  
   //宠物详情
-  petDetail: function (e) {
+  petDetail:function(e){
     app.globalData.directory = 'index';
     var userInfo = wx.getStorageSync('userInfo');
-    if (userInfo) {
+    if (userInfo){
       wx.navigateTo({
         url: '../noadopt/noadopt?id=' + e.currentTarget.dataset.id
       })
-    } else {
+    }else{
       this.setData({
         is_loginBox: true
       });

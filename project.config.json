@@ -125,8 +125,8 @@
 				},
 				{
 					"id": 12,
-					"name": "新首页",
-					"pathName": "pages/new-index/index",
+					"name": "首页",
+					"pathName": "pages/index/index",
 					"query": "",
 					"scene": null
 				},

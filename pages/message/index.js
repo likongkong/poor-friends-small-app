@@ -1,4 +1,4 @@
-// pages/ceshi/index.js
+// pages/message/index.js
 Page({
 
   /**
@@ -14,11 +14,7 @@ Page({
   onLoad: function (options) {
 
   },
-  // 下拉刷新
-  onPullDownRefresh: function () {
-    // wx.stopPullDownRefresh()
-    console.log(1)
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -66,7 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  
-  
+  }
 })

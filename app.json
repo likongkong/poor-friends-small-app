@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/pagehome/index",
     "pages/petKnowledge/index",
     "pages/myAdoption/myAdoption",
-    "pages/new-index/index",
     "pages/myCreate/myCreate",
     "pages/myLike/myLike",
     "pages/myCenter/myCenter",
@@ -12,17 +12,17 @@
     "pages/contactUs/contactUs",
     "pages/adoptApply/adoptApply",
     "pages/my/my",
-    "pages/index/index",
+    "pages/freeAdoption/index",
     "pages/activity/activity",
-    "pages/ceshi/index",
     "pages/newsDetail/index",
     "pages/userinfo/index",
     "pages/adduserinfo/index",
-    "pages/create/create",
+    "pages/release/create",
     "pages/city/city",
     "pages/search/search",
     "pages/noadopt/noadopt",
-    "pages/releasedynamic/releasedynamic"
+    "pages/releasedynamic/releasedynamic",
+    "pages/message/index"
   ],
   "permission": {
     "scope.userLocation": {
@@ -41,28 +41,22 @@
     "backgroundColor": "#000",
     "list": [
       {
-        "pagePath": "pages/pagehome/index",
-        "iconPath": "image/home-2.png",
-        "selectedIconPath": "image/home-1.png",
-        "text": "趣闻"
-      },
-      {
         "pagePath": "pages/index/index",
         "iconPath": "image/adopt-2.png",
         "selectedIconPath": "image/adopt-1.png",
-        "text": "领养"
+        "text": "探索"
       },
       {
-        "pagePath": "pages/create/create",
+        "pagePath": "pages/release/create",
         "iconPath": "image/give-2.png",
         "selectedIconPath": "image/give-1.png",
-        "text": "送养"
+        "text": "发布"
       },
       {
-        "pagePath": "pages/activity/activity",
+        "pagePath": "pages/message/index",
         "iconPath": "image/huodong-2.png",
         "selectedIconPath": "image/huodong-1.png",
-        "text": "活动"
+        "text": "消息"
       },
       {
         "pagePath": "pages/my/my",

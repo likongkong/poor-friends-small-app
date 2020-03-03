@@ -1,170 +1,141 @@
-<!--index.wxml--> 
-<!-- <view class="container"> 
-  <view  bindtap="bindViewTap" class="userinfo"> 
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image> 
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text> 
-  </view> 
-  <view class="usermotto"> 
-    <text class="user-motto">{{motto}}</text> 
-  </view> 
-</view> --> 
-<!-- <view class="head-search"> 
-  <view class="city" bindtap="toast" data-name="{{cityName}}" data-id="{{cityId}}"> 
-    <view wx:if="{{loading}}"> 
-      <text>{{cityName}}</text> 
-      <image class='select' src="../../image/triangle.png"></image>  
-    </view> 
-    <view wx:else> 
-      <image class='loading' src="../../image/loading.gif"></image> 
-    </view> 
-  </view> 
-  <view class="search" bindtap="searchPage" data-id="{{cityId}}"> 
-    <image class="search-icon" src="../../image/search.png"></image> 
-    <input class="search-input" type="text" disabled="true" placeholder="寻找朋友" placeholder-class="search-placeholder"/> 
-  </view> 
-</view> 
-<view class="nav"> 
-  <view data-num="1" class="dog {{num==1?'on':''}}" bindtap="tapdog" data-id="{{cityId}}"> 
-    <image src="../../image/dog.png"></image> 
-    <text>汪星人</text> 
-  </view> 
-  <view data-num="2" class="cat {{num==2?'on':''}}" bindtap="tapcat" data-id="{{cityId}}"> 
-    <image src="../../image/cat.png"></image> 
-    <text>喵星人</text> 
-  </view> 
-  <view data-num="3" class="other {{num==3?'on':''}}" bindtap="tapother" data-id="{{cityId}}"> 
-    <image src="../../image/other.png"></image> 
-    <text>其他物种</text> 
-  </view> 
-</view> 
-<view class="gray-box"></view> 
-<view class="content"> 
-    <view class="dog-content"> 
- 
-      <block wx:for="{{dataList}}" wx:for-item="item"> 
-        <view class="card" data-id='{{item.id}}' catchtap="fosterDetail"> 
-          <view class="card-left"> 
-            <view class="card-photo"> 
-              <image src="{{item.foster_title_photo}}?imageView2/1/w/400/h/400/q/75|imageslim"></image> 
-            </view> 
-          </view> 
-          <view class="card-right"> 
-            <view class="card-details"> 
-              <text class="card-title">{{item.foster_title}}</text> 
-              <text class="card-txt">品种：【{{item.species_name}}】</text> 
-              <text class="card-txt">年龄：{{item.foster_age}}</text>             
-            </view> 
-            <view class="card-address"> 
-              <image src="../../image/address.png"></image> 
-              <text>地址：{{item.foster_address}}</text> 
-            </view> 
-          </view> 
-        </view> 
-      </block> 
-      <view class='no_sy' wx:if="{{is_sy}}"> 
-        <image src='../../image/placeholdr.png'></image> 
-        <text>页面被本汪吃了...</text> 
-      </view> 
-    </view> 
-</view> -->
-<!--index.wxml--> 
- 
-<!-- <view class="container"> 
- 
-  <view  bindtap="bindViewTap" class="userinfo"> 
- 
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image> 
- 
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text> 
- 
-  </view> 
- 
-  <view class="usermotto"> 
- 
-    <text class="user-motto">{{motto}}</text> 
- 
-  </view> 
- 
-</view> --> 
- 
+
+ <!-- 头部搜索框 -->
 <view class="head-search"> 
-  <view class="city" bindtap="goCity" data-name="{{cityName}}" data-id="{{cityId}}"> 
-    <view wx:if="{{loading}}"> 
-      <text>{{cityName}}</text> 
-    </view> 
-    <view wx:else> 
-      <image class='loading' src="../../image/loading.gif" mode='widthFix'></image> 
-    </view> 
-  </view> 
   <view class="search" bindtap="goSearch" data-id="{{cityId}}"> 
     <image class="search-icon" src="../../image/search.png"></image> 
-    <input class="search-input" type="text" disabled="true" placeholder="寻找朋友" placeholder-class="search-placeholder"/> 
+    <input class="search-input" type="text" disabled="true" placeholder="搜索你想知道的" placeholder-class="search-placeholder"/> 
   </view> 
 </view> 
- 
-<view class="nav"> 
-  <view data-num="0" class="dog {{num==0?'on':''}}" bindtap="recommendList" data-id="{{cityId}}"> 
-    <image src="../../image/all.png"></image> 
-    <text>全部</text> 
-  </view> 
-  <view data-num="1" class="dog {{num==1?'on':''}}" bindtap="dogList" data-id="{{cityId}}"> 
-    <image src="../../image/dog.png"></image> 
-    <text>汪星人</text> 
-  </view> 
-  <view data-num="2" class="cat {{num==2?'on':''}}" bindtap="catList" data-id="{{cityId}}"> 
-    <image src="../../image/cat.png"></image> 
-    <text>喵星人</text> 
-  </view> 
-  <view data-num="3" class="other {{num==3?'on':''}}" bindtap="otherList" data-id="{{cityId}}"> 
-    <image src="../../image/other.png"></image> 
-    <text>其他物种</text> 
-  </view> 
- 
-</view> 
- 
- 
-<view class="content"> 
-  <view class="dog-content"> 
-    <block wx:for="{{dataList}}" wx:for-item="item"> 
+
+<view class="content">
+  <!-- 导航菜单 -->
+  <view class="nav">
+    <view style="margin-bottom: 34rpx;">
+      <view class="nav_menu" data-url="/pages/freeAdoption/index" bindtap="goto">
+        <image src="../../image/dog.png" mode='widthFix'></image> 
+        <text>无偿领养</text>
+      </view>
+      <view class="nav_menu">
+        <image src="../../image/dog.png" mode='widthFix'></image> 
+        <text>有偿领养</text>
+      </view>
+      <view class="nav_menu">
+        <image src="../../image/dog.png" mode='widthFix'></image> 
+        <text>寻找宠物</text>
+      </view>
+      <view class="nav_menu" data-url="/pages/petKnowledge/index" bindtap="goto">
+        <image src="../../image/dog.png" mode='widthFix'></image> 
+        <text>养宠知识</text>
+      </view>
+    </view>
+    
+    <view>
+      <view class="nav_menu" data-url="/pages/pagehome/index" bindtap="goto">
+        <image src="../../image/dog.png" mode='widthFix'></image> 
+        <text>星球趣闻</text>
+      </view>
+      <view class="nav_menu">
+        <image src="../../image/dog.png" mode='widthFix'></image> 
+        <text>宠物服务</text>
+      </view>
+      <view class="nav_menu">
+        <image src="../../image/dog.png" mode='widthFix'></image> 
+        <text>救助联盟</text>
+      </view>
+      <view class="nav_menu" data-url="/pages/activity/activity" bindtap="goto">
+        <image src="../../image/dog.png" mode='widthFix'></image> 
+        <text>活动签到</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- banner图 -->
+  <view class="banner">
+    <!-- <view class="banner-photo"> 
+      <swiper class="swiper-block" indicator-dots="{{indicatorDots}}"  bindchange="swiperChange"
+        circular="true" previous-margin="86rpx" next-margin="13rpx"> 
+        <block wx:for="{{imgUrls}}"> 
+          <swiper-item class="swiper-item"> 
+              <text class="swiperTest swiper-label">狗狗常识</text>
+              <text class="swiperTest swiper-title">知识小课堂</text>
+              <text class="swiperTest swiper-txt">狗狗为什么不爱吃狗粮？</text>
+              <image class="slide-image {{swiperIndex == index ? 'active' : ''}}" src="{{item}}?imageView2/1/w/640/h/218/q/100" /> 
+          </swiper-item> 
+        </block> 
+      </swiper> 
+    </view> -->
+    <view class='carousel'> 
+      <swiper class='carousel_swiper' indicator-dots="true" indicator-color="#f4f4f4" indicator-active-color="#333" interval='2000' circular='true'>
+        <block wx:for="{{imgUrls}}" wx:key="key">
+          <swiper-item class="swiper-item" bindtap='chomeCarouselClick' data-url='{{item}}'>
+            <image class="carouselImg" src='{{item}}?imageView2/1/w/640/h/218/q/100' mode='aspectFill' ></image>
+            <view class="swiper_mask">
+              <text class="swiperTest swiper-label">狗狗常识</text>
+              <text class="swiperTest swiper-title">知识小课堂</text>
+              <text class="swiperTest swiper-txt">狗狗为什么不爱吃狗粮？</text>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+
+  <!-- 宠物趣闻推荐 -->
+  <view class="nav_tab">
+    <view class="{{tabnum == 0 ? 'tab_active' : ''}}" data-tabnum="0" bindtap="btnTab">
+      <text>宠物推荐</text>
+      <image wx:if="{{tabnum == 0}}" src="../../image/xian.png" mode='widthFix' /> 
+    </view>
+    <view class="{{tabnum == 1 ? 'tab_active' : ''}}" data-tabnum="1" bindtap="btnTab">
+      <text>萌宠趣闻</text>  
+      <image wx:if="{{tabnum == 1}}" src="../../image/xian.png" mode='widthFix' /> 
+    </view>
+  </view>
+
+  <view>
+    <!-- 宠物推荐 -->
+    <view wx:if="{{tabnum == 0}}" class="pet_recommend">
+      <!-- <view class="rec_tab">
+        <text class="rec_active">推荐</text>
+        <text>汪星</text>
+        <text>喵星</text>
+        <text>其他星系</text>
+      </view> -->
       <view class="card" data-id='{{item.id}}' catchtap="petDetail">
         <view class="card-left"> 
-            <image src="{{item.foster_title_photo}}?imageView2/1/w/254/h/226/q/75|imageslim" mode="widthFix"></image> 
+            <image src="../../image/pagehomeshare.png?imageView2/1/w/254/h/226/q/75|imageslim" mode="widthFix"></image> 
         </view> 
         <view class="card-right"> 
           <view class="card-details"> 
-            <text class="card-title">{{item.foster_title}}</text> 
-            <view class="card-name marginT12"> <text>{{item.species_name}}</text>  <image src="{{item.foster_sex == 1?'../../image/nan.png':'../../image/nv.png'}} " mode="widthFix"></image></view> 
-            <text class="card-age marginT12">{{item.foster_age}}</text>             
-            <image class='card-status marginT12' src="{{item.is_adopted==0?'../../image/dendaily.png':'../../image/yibeily.png'}}" mode="widthFix"/>
+            <text class="card-title">2222</text> 
+            <view class="card-name marginT12"> <text>3333</text>  <image src="../../image/nan.png" mode="widthFix"></image></view> 
+            <text class="card-age marginT12">1</text>             
+            <image class='card-status marginT12' src="../../image/dendaily.png" mode="widthFix"/>
           </view> 
           <view class="card-address marginT12"> 
             <image src="../../image/address.png"></image> 
-            <text>{{item.foster_address}}</text> 
+            <text>北京市</text> 
           </view> 
         </view> 
       </view> 
-    </block> 
-    <view class='no_sy' wx:if="{{is_sy}}"> 
-      <image src='../../image/placeholdr.png'></image> 
-      <text>页面被本汪吃了...</text> 
-    </view> 
-    <view class="noMore {{is_more==true?'show':'hide'}}">
-      <view>
-        <image src='../../image/placeholdr.png'></image>
-        <text>数据被本汪吃掉了...</text>
+    </view>
+    <!-- 趣闻推荐 -->
+    <view wx:else class="pet_news">
+      <view class='c_dan_list c_list_b'>
+        <view class='c_dan_list_l'>
+          <text>测试测试测试测试测试</text>
+          <view class='author_info'>
+              <!-- <image src='../../image/zan.png'></image> -->
+              <text class='name'>小动物保护协会</text> 
+              <text class='time'>2018.09.14</text>
+          </view>
+        </view>
+        <view class='c_dan_list_r'>
+          <image src='http://test-img.poorfriends.com/20180918%2F5ba11056722a35.58215595?imageView2/1/w/240/h/180/q/100|imageslim'></image>
+        </view>
       </view>
     </view>
-  </view> 
-</view>
- 
-
- <view class="login {{is_loginBox==true?'show':'hide'}}">
-  <view>
-    <view class='gb-img' bindtap='chooseLoginHide'><image src='../../image/gb.png'></image></view>
-    <text class='login-title'>登录宠物星球</text>
-    <button class='wx-login' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">
-        <image src='../../image/wx.png' mode='widthFix'></image>
-        <text class='color3'>微信账号快速登录</text>
-    </button>
   </view>
-</view> 
+
+</view>
+
